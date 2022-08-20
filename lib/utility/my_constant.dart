@@ -1,0 +1,50 @@
+import 'package:flutter/material.dart';
+
+class Myconstant {
+  static Color primary = const Color.fromARGB(255, 54, 77, 211);
+  static Color dark = Colors.black;
+
+  BoxDecoration bgBOX() => BoxDecoration(
+        color: primary,
+      );
+
+
+TextStyle h1Style() => TextStyle(
+  fontSize: 36,
+  color: dark,
+  fontWeight: FontWeight.bold,
+);
+
+TextStyle h2Style() => TextStyle(
+  fontSize: 18,
+  color: dark,
+  fontWeight: FontWeight.w500,
+);
+
+
+TextStyle h2whiteStyle() => const TextStyle(
+  fontSize: 20,
+  color: Colors.white,
+  fontWeight: FontWeight.w500,
+);
+
+
+TextStyle h2redStyle() => const TextStyle(
+  fontSize: 20,
+  color: Color.fromARGB(255, 218, 31, 31),
+  fontWeight: FontWeight.w500,
+);
+
+
+
+TextStyle h3Style() => TextStyle(
+  fontSize: 14,
+  color: dark,
+  fontWeight: FontWeight.normal,
+);
+
+
+
+
+
+}
