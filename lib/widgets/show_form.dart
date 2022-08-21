@@ -8,12 +8,14 @@ class ShowForm extends StatelessWidget {
   final IconData iconData;
   final Function(String) changeFunc;
   final bool? obsecu;
+  final TextInputType? textInputType;
   const ShowForm({
     Key? key,
     required this.hint,
     required this.iconData,
     required this.changeFunc,
     this.obsecu,
+    this.textInputType,
   }) : super(key: key);
 
   @override
@@ -21,7 +23,8 @@ class ShowForm extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 16),
       width: 250,
-      child: TextFormField(obscureText: obsecu ?? false,
+      child: TextFormField(keyboardType: textInputType ?? TextInputType.text,
+        obscureText: obsecu ?? false,
         onChanged: changeFunc,
         decoration: InputDecoration(
           hintText: hint,

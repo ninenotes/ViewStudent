@@ -11,8 +11,12 @@ class MyDialog {
     required this.context,
   });
 
-  Future<void> normalDialog(
-      {required String title, required String subTitle}) async {
+  Future<void> normalDialog({
+    required String title,
+    required String subTitle,
+    String? label,
+    Function()? pressFunc,
+  }) async {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -24,12 +28,19 @@ class MyDialog {
           title: ShowText(
             text: title,
             textStyle: Myconstant().h2Style(),
-          ),subtitle: ShowText(text: subTitle),
+          ),
+          subtitle: ShowText(text: subTitle),
         ),
         actions: [
-          ShowButton(lable: 'OK', pressFunc: () {
-            Navigator.pop(context);
-          },)
+          label == null
+              ? const SizedBox()
+              : ShowButton(lable: label, pressFunc: pressFunc!),
+          ShowButton(
+            lable: label == null ? 'OK' : 'Cancel',
+            pressFunc: () {
+              Navigator.pop(context);
+            },
+          )
         ],
       ),
     );
