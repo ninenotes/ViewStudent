@@ -13,16 +13,16 @@ String? keyState;
 
 Future<void> main() async {
 
-WidgetsFlutterBinding.ensureInitialized();
-await Firebase.initializeApp().then((value) {
-    FirebaseAuth.instance.authStateChanges().listen((event) { 
+WidgetsFlutterBinding.ensureInitialized(); 
+await Firebase.initializeApp().then((value) {// เช็คไฟลถ้าผ่านเงือนไขถึงทำงาน
+    FirebaseAuth.instance.authStateChanges().listen((event) { // evnt คือค่าที่ มีการเปลียนให้ทำงาน
 
     if (event == null) {
-      // SigOut Status
+      // SigOut Status ถ้าค่าเท่ากับnull คิอยังไม่ได้ลิอคอิน
       keyState = '/login';
       runApp(const MyApp());
     } else {
-      // SigIn Status
+      // SigIn Status ท่าไม่ตรงเงือนไขไปแอปเซฺอวิส
       keyState ='/appService';
       runApp(const MyApp());
     }

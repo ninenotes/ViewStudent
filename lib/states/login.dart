@@ -27,7 +27,7 @@ class _LoginState extends State<Login> {
             makeCenter(widget: newLogo()),
             makeCenter(
                 widget: ShowText(
-              text: 'วิทยาลัยเทคนิคสมุทรสงคราม',
+              text: 'VIEWSTUDEN',
               textStyle: Myconstant().h2whiteStyle(),
             )),
             makeCenter(
@@ -50,7 +50,7 @@ class _LoginState extends State<Login> {
             makeCenter(
                 widget: Container(
               margin: const EdgeInsets.only(top: 16),
-              width: 250,
+              width: 150,
               child: ShowButton(
                 colorPriamry: Colors.white,
                 lable: 'เข้าสู่ระบบ',

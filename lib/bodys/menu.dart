@@ -1,5 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:viewstudent/bodys/acadmic_results.dart';
+import 'package:viewstudent/bodys/check_status.dart';
+import 'package:viewstudent/bodys/history.dart';
+import 'package:viewstudent/bodys/time_table.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/show_text.dart';
 
@@ -38,6 +42,28 @@ class _MenuState extends State<Menu> {
               processSingOut();
 
               break;
+
+            case 0:
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const HistoryStuden(),
+                  ));
+              break;
+
+            case 1:
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ResultsStuden(),
+                  ));
+              break;
+            case 2:
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const CheckStuden()));
+              break;
+            case 3:Navigator.push(context, MaterialPageRoute(builder: (context) => const TableSuten(),));
+            break;
             default:
           }
         },

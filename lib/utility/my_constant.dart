@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Myconstant {
-  static Color primary = const Color.fromARGB(255, 54, 77, 211);
+  static Color primary = Color.fromARGB(255, 240, 183, 202);
   static Color dark = Colors.black;
 
   BoxDecoration bgBOX() => BoxDecoration(
@@ -23,7 +23,7 @@ TextStyle h2Style() => TextStyle(
 
 
 TextStyle h2whiteStyle() => const TextStyle(
-  fontSize: 20,
+  fontSize: 30,
   color: Colors.white,
   fontWeight: FontWeight.w500,
 );

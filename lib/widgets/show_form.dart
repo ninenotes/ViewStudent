@@ -22,8 +22,10 @@ class ShowForm extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(top: 16),
-      width: 250,
-      child: TextFormField(keyboardType: textInputType ?? TextInputType.text,
+      height: 47,
+      width: 260,
+      child: TextFormField(
+        keyboardType: textInputType ?? TextInputType.text,
         obscureText: obsecu ?? false,
         onChanged: changeFunc,
         decoration: InputDecoration(
