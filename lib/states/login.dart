@@ -4,6 +4,7 @@ import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/show_button.dart';
 import 'package:viewstudent/widgets/show_form.dart';
+import 'package:viewstudent/widgets/show_icon_button.dart';
 import 'package:viewstudent/widgets/show_image.dart';
 import 'package:viewstudent/widgets/show_text.dart';
 
@@ -24,6 +25,18 @@ class _LoginState extends State<Login> {
         decoration: Myconstant().bgBOX(),
         child: ListView(
           children: [
+            Row(mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                
+                ShowIconButton(
+                  
+                  iconData: Icons.help,
+                  pressFunc: () {
+                    MyDialog(context: context).normalDialog(title: 'How to sign in', subTitle: 'นักเรียน-นักศึกษา : เข้าสู่ระบบโดยใช้ของรหัสนักศึกษา ตามด้วย@sstc.com        ================= อาจารย์: เข้าสู่ระบบโดยใช้เบอร์โทรตามด้วย @sstc.com');
+                  },
+                ),
+              ],
+            ),
             makeCenter(widget: newLogo()),
             makeCenter(
                 widget: ShowText(
@@ -50,7 +63,7 @@ class _LoginState extends State<Login> {
             makeCenter(
                 widget: Container(
               margin: const EdgeInsets.only(top: 16),
-              width: 150,
+              width: 250,
               child: ShowButton(
                 colorPriamry: Colors.white,
                 lable: 'เข้าสู่ระบบ',
@@ -63,7 +76,7 @@ class _LoginState extends State<Login> {
                   }
                 },
               ),
-            ))
+            )),
           ],
         ),
       ),

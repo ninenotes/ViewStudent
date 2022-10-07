@@ -40,14 +40,26 @@ dependencies:
   firebase_storage: ^10.3.6
   image_picker: ^0.8.5+3
   flutter_launcher_icons: ^0.10.0
+  searchable_listview: ^2.0.1
+  pdf_viewer_jk: ^2.1.5
+  
+ 
+  
 
+  
+   
+   
+  
 
+pdf_viewer_jk: any
   
   
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -69,6 +81,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
+  
     - images/
   #   - images/a_dot_ham.jpeg
 
