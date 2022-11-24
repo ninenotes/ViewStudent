@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/src/painting/gradient.dart';
 
 class Myconstant {
-  static Color primary = Color.fromARGB(255, 240, 183, 202);
-  static Color dark = Colors.black;
+  static Color primary = Color.fromARGB(212, 50, 223, 253);
+
+  static Color dark = Color.fromARGB(255, 0, 0, 0);
+
+  static Color primaryColorLight = Color(0xFFf85187);
+  static Color primaryLightColorLight = Color(0xFF3ac3cb);
+
+  static const mainGradientLight =
+      LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [Color(0xFFf85187), Color(0xFF3ac3cb)]);
 
   BoxDecoration bgBOX() => BoxDecoration(
-        color: primary,
-      );
+      //color: primary,
+
+      gradient: mainGradientLight);
 
   TextStyle h1Style() => TextStyle(
         fontSize: 36,

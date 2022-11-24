@@ -61,6 +61,7 @@ class _ProfileState extends State<Profile> {
                     height: 250,
                     child: Image.network(userModel!.urlPfile),
                   ),
+                  
                   newContent(head: 'รหัส: ', value: userModel!.idStudent),
                   newContent(head: 'ชื่อ', value: userModel!.name),
                   newContent(head: 'ชั้นปี', value: userModel!.yearStudent),

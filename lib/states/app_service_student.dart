@@ -21,14 +21,14 @@ class AppServiceStudent extends StatefulWidget {
 class _AppServiceStudentState extends State<AppServiceStudent> {
   int indexBody = 1;
   var titles = <String>[
-    'Porfile',
-    'Menu',
-    'Search',
+    'โปรไฟล',
+    'เมนู',
+    'ค้นหา',
   ];
   var widgets = <Widget>[
     const Profile(),
     const Menu(),
-    const Search(),
+      Search(),
   ];
 
   var iconDatas = <IconData>[
@@ -86,7 +86,8 @@ class _AppServiceStudentState extends State<AppServiceStudent> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.white,
-        backgroundColor: Myconstant.primary,
+        backgroundColor: Myconstant.primaryColorLight,
+        //สีแอปบาร
         currentIndex: indexBody,
         items: bottomNavItemBars,
         onTap: (value) {
