@@ -49,25 +49,27 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    
     return load
         ? const ShowProgress()
         : haveData!
             ? ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 children: [
+                  
                   Container(
-                    margin: const EdgeInsets.symmetric(vertical: 16),
-                    width: 250,
+                    //decoration:BoxDecoration(boxShadow: [BoxShadow(blurRadius: 22,color:Myconstant.primary )]) ,
+                    margin: const EdgeInsets.symmetric(vertical: 18),
+                    width: 150,
                     height: 250,
                     child: Image.network(userModel!.urlPfile),
+                    // child: Image.network(userModel!.urlPfile,fit:BoxFit.cover,),
                   ),
-                  
                   newContent(head: 'รหัส: ', value: userModel!.idStudent),
-                  newContent(head: 'ชื่อ', value: userModel!.name),
-                  newContent(head: 'ชั้นปี', value: userModel!.yearStudent),
-                  newContent(head: 'แผนก', value: userModel!.divition),
-                  newContent(head: 'อาจารย์', value: userModel!.teacher),
-
+                  newContent(head: 'ชื่อ:', value: userModel!.name),
+                  newContent(head: 'ชั้นปี:', value: userModel!.yearStudent),
+                  newContent(head: 'แผนก:', value: userModel!.divition),
+                  newContent(head: 'อาจารย์:', value: userModel!.teacher),
                 ],
               )
             : newNoProfile(context);
@@ -76,23 +78,31 @@ class _ProfileState extends State<Profile> {
   Column newContent({required String head, required String value}) {
     return Column(
       children: [
+        
         Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Expanded(
-                          flex: 1,
-                          child: ShowText(
-                            text: head,
-                            textStyle: Myconstant().h2Style(),
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: ShowText(text: value),
-                        ),
-                      ],
-                    ),
-                    Divider(color: Myconstant.dark,thickness: 1,),
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 1,
+              child: ShowText(
+                text: head,
+                textStyle: Myconstant().h2Style(),
+              ),
+            ),
+            Expanded(
+              flex: 1,
+              child: ShowText(text: value),
+            ),
+          ],
+        ),
+        Divider(
+          color: Myconstant.primaryColorLight,
+          thickness: 1,
+          indent: 2,
+          endIndent: 1,
+          height: 25,
+        ),
+        //เส้นบรรทีด// Divider(color: Myconstant.dark,thickness: 1,),
       ],
     );
   }

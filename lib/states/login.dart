@@ -67,7 +67,7 @@ class _LoginState extends State<Login> {
               margin: const EdgeInsets.only(top: 16),
               width: 250,
               child: ShowButton(
-                colorPriamry: Colors.white,
+                colorPriamry: Color.fromARGB(255, 219, 20, 20),
                 lable: 'เข้าสู่ระบบ',
                 pressFunc: () {
                   if ((user?.isEmpty ?? true) || (password?.isEmpty ?? true)) {

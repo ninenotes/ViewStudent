@@ -25,7 +25,7 @@ class ShowButton extends StatelessWidget {
         text: lable,
         textStyle: colorPriamry == null
             ? Myconstant().h2whiteStyle()
-            : Myconstant().h2redStyle(),
+            : Myconstant().h3whiteStyle(),
       ),
     );
   }

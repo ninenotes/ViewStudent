@@ -34,6 +34,11 @@ class Myconstant {
         color: Colors.white,
         fontWeight: FontWeight.w500,
       );
+       TextStyle h3whiteStyle() => const TextStyle(
+        fontSize: 20,
+        color: Colors.white,
+        fontWeight: FontWeight.w500,
+      );
 
   TextStyle h2redStyle() => const TextStyle(
         fontSize: 20,
