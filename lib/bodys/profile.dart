@@ -73,8 +73,11 @@ class _ProfileState extends State<Profile> {
                 ],
               )
             : newNoProfile(context);
-  }
+          
 
+      
+  }
+  
   Column newContent({required String head, required String value}) {
     return Column(
       children: [

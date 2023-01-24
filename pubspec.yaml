@@ -42,6 +42,7 @@ dependencies:
   flutter_launcher_icons: ^0.10.0
   searchable_listview: ^2.0.1
   pdf_viewer_jk: ^2.1.5
+  webview_flutter: ^3.0.1
   
  
   

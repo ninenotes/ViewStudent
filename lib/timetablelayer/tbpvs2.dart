@@ -28,7 +28,7 @@ class _ScorePVC2State extends State<TbPVS2> {
     await Firebase.initializeApp().then((value) async {
       print('initialize Success');
       await FirebaseFirestore.instance
-          .collection('table')
+          .collection('table5')
           .orderBy('name')
           .snapshots()
           .listen((event) {
@@ -83,7 +83,7 @@ class _ScorePVC2State extends State<TbPVS2> {
     return Scaffold(
       appBar: AppBar(
         title: ShowText(
-          text: 'ปวช 2',
+          text: 'ปวส 2',
           textStyle: Myconstant().h2whiteStyle(),
         ),
       ),

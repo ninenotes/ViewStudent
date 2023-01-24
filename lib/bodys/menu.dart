@@ -91,7 +91,7 @@ class _MenuState extends State<Menu> {
 
   Future<void> processSingOut() async {
     MyDialog(context: context).normalDialog(
-      title: 'Confirm SingOut ?',
+      title: 'คุณต้องการออกจากระบบ ?',
       subTitle: 'Please Confirm SingOut',
       label: 'SingOut',
       pressFunc: () async {
