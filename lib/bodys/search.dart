@@ -4,15 +4,17 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:viewstudent/widgets/%E0%B8%B4books.dart';
+import 'package:viewstudent/widgets/books.dart';
 import 'package:viewstudent/widgets/show_icon_button.dart';
 import 'package:viewstudent/widgets/show_text.dart';
 import 'package:searchable_listview/searchable_listview.dart';
 
+import '../folder/book_page.dart';
+
 class Search extends StatefulWidget {
   //const Search({super.key});
 
- // final Book book;
+
 
    
   @override
@@ -20,6 +22,7 @@ class Search extends StatefulWidget {
 }
 
 class _Searchdat extends State<Search> {
+  
   Future pickImage() async {
     // your code
 
@@ -34,9 +37,8 @@ class _Searchdat extends State<Search> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(
-          title: Text('data'),
-        ),
+       
+        
         body: Column(
           children: <Widget>[
             Container(
@@ -95,7 +97,7 @@ class _Searchdat extends State<Search> {
     setState(() => books = suggestions);
   }
   
-  BookPage({required Book book}) {}
+  
   
   
 }

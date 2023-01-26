@@ -23,7 +23,7 @@ class AddProfileStudent extends StatefulWidget {
 
 class _AddProfileStudentState extends State<AddProfileStudent> {
   File? file;
-  String? idStudent, name, yearStudent, divition, teacher;
+  String? idStudent, name, yearStudent, divition, teacher,email;
 
   @override
   Widget build(BuildContext context) {
@@ -212,7 +212,9 @@ class _AddProfileStudentState extends State<AddProfileStudent> {
           divition: divition!,
           teacher: teacher!,
           urlPfile: urlPorfile,
-          typeuser: 'student',
+          typeuser: 'student', 
+          email:email!,
+          
         );
 
         await FirebaseFirestore.instance
