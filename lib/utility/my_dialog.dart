@@ -21,10 +21,10 @@ class MyDialog {
       context: context,
       builder: (context) => AlertDialog(
         content: ListTile(
-          leading: const SizedBox(
+          /*leading: const SizedBox(
             width: 80,
             child: ShowImage(),
-          ),
+          ),*/
           title: ShowText(
             text: title,
             textStyle: Myconstant().h2Style(),

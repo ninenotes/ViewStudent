@@ -34,7 +34,7 @@ class _LoginState extends State<Login> {
                   
                   iconData: Icons.help,
                   pressFunc: () {
-                    MyDialog(context: context).normalDialog(title: 'How to sign in', subTitle: 'นักเรียน-นักศึกษา : เข้าสู่ระบบโดยใช้ของรหัสนักศึกษา ตามด้วย@sstc.com        ================= อาจารย์: เข้าสู่ระบบโดยใช้เบอร์โทรตามด้วย @sstc.com');
+                    MyDialog(context: context).normalDialog(title: 'How to sign in', subTitle: '\n\nนักเรียน-นักศึกษา : เข้าสู่ระบบโดยใช้ของรหัสนักศึกษา ตามด้วย@sstc.com  \n\n อาจารย์: เข้าสู่ระบบโดยใช้เบอร์โทรตามด้วย @sstc.com');
                   },
                 ),
               ],

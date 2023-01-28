@@ -12,7 +12,7 @@ final String  teacher;
 final String  urlPfile;
 final String typeuser;
 
-final String email;
+
   UserModel({
     required this.idStudent,
     required this.name,
@@ -21,7 +21,7 @@ final String email;
     required this.teacher,
     required this.urlPfile,
     required this.typeuser,
-    required this.email
+
   });
 
 
@@ -49,7 +49,7 @@ final String email;
       teacher: map['teacher'] as String,
       urlPfile: map['urlPfile'] as String,
       typeuser: map['typeuser'] as String,
-      email: map['meail']as String,
+      
     );
   }
 

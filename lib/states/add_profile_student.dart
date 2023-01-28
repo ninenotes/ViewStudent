@@ -213,7 +213,8 @@ class _AddProfileStudentState extends State<AddProfileStudent> {
           teacher: teacher!,
           urlPfile: urlPorfile,
           typeuser: 'student', 
-          email:email!,
+
+          
           
         );
 
