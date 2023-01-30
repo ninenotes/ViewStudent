@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:viewstudent/bodys/tc_profile.dart';
 import 'package:viewstudent/models/user_model.dart';
 import 'package:viewstudent/states/add_profile_student.dart';
 import 'package:viewstudent/utility/my_constant.dart';
@@ -51,7 +52,11 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     
     return load
-        ? const ShowProgress()
+        ?   
+              const tc_profile()
+                  
+        
+        //ShowProgress()
         : haveData!
             ? ListView(
                 padding: const EdgeInsets.symmetric(horizontal: 16),

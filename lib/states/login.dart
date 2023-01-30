@@ -42,7 +42,7 @@ class _LoginState extends State<Login> {
             makeCenter(widget: newLogo()),
             makeCenter(
                 widget: ShowText(
-              text: 'VIEWSTUDEN',
+              text: 'Student SEA',
               textStyle: Myconstant().h2whiteStyle(),
             )),
             makeCenter(
