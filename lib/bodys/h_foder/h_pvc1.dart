@@ -8,10 +8,10 @@ class h_pvc1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+   return Scaffold(
       appBar: AppBar(
         title: ShowText(
-          text: 'ปวช 1',
+          text: 'ปว ช 1',
           textStyle: Myconstant().h2whiteStyle(),
         ),
       ),

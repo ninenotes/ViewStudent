@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:viewstudent/bodys/menu.dart';
+import 'package:viewstudent/bodys/menu2.dart';
 import 'package:viewstudent/bodys/profile.dart';
 import 'package:viewstudent/bodys/search.dart';
 import 'package:viewstudent/states/add_profile_student.dart';
@@ -22,13 +23,14 @@ class _AppServiceStudentState extends State<AppServiceStudent> {
   int indexBody = 1;
   var titles = <String>[
     'โปรไฟล',
-    'เมนู',
+    'เมนู',                                                                  
     'ค้นหา',
   ];
   var widgets = <Widget>[
     const Profile(),
     const Menu(),
       Search(),
+      
   ];
 
   var iconDatas = <IconData>[
@@ -136,7 +138,7 @@ class _AppServiceStudentState extends State<AppServiceStudent> {
                   });
                 },
               ),
-              RadioListTile(
+              RadioListTile(                    
                 title: ShowText(text: 'อาจารย์'),
                 value: 'teacher',
                 groupValue: typeUser,

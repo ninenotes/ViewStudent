@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:viewstudent/bodys/COVID_19.dart';
 import 'package:viewstudent/bodys/acadmic_results.dart';
 import 'package:viewstudent/bodys/check_status.dart';
 import 'package:viewstudent/bodys/history.dart';
@@ -8,29 +7,29 @@ import 'package:viewstudent/bodys/time_table.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/show_text.dart';
 
-class Menu extends StatefulWidget {
-  const Menu({super.key});
+class Menu2 extends StatefulWidget {
+  const Menu2({super.key});
 
   @override
-  State<Menu> createState() => _MenuState();
+  State<Menu2> createState() => _MenuState();
 }
 
-class _MenuState extends State<Menu> {
+class _MenuState extends State<Menu2> {
   var titles = <String>[
     'ประวัตินักศึกษา',
     'ผลการเรียน',
     'สถานะตรวจสภาพ',
     'ตรางเรียน',
-    'สถานะโควิด',
     'ออกจากระบบ',
+    'สถานะโควิด'
   ];
   var iconDatas = <IconData>[
     Icons.history_edu,
     Icons.school,
     Icons.check_box,
     Icons.table_chart,
-    Icons.vaccines,
-    Icons.exit_to_app
+    Icons.exit_to_app,
+   Icons.share_arrival_time
   ];
   @override
   Widget build(BuildContext context) {
@@ -41,16 +40,8 @@ class _MenuState extends State<Menu> {
           print('you click index ===> $index');
 
           switch (index) {
-            case 5:
-              processSingOut();
-
-              break;
             case 4:
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const covid(),
-                  ));
+              processSingOut();
 
               break;
 
