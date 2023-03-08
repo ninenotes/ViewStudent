@@ -13,6 +13,18 @@ final String divition;
 final String  teacher;
 final String  urlPfile;
 final String typeuser;
+final String grade;
+final String E30000_1204;
+final String E30000_2003;
+final String E30001_1001;
+final String E30901_2003;
+final String E30901_2005;
+final String E30901_2007;
+final String E30901_2008;
+final String E30901_2202;
+final String E30901_8502;
+
+ 
 
 
   UserModel({
@@ -21,8 +33,18 @@ final String typeuser;
     required this.yearStudent,
     required this.divition,
     required this.teacher,
+    required this.grade,
+    required this.E30000_1204,
+    required this.E30000_2003,
+    required this.E30001_1001,
     required this.urlPfile,
     required this.typeuser,
+    required this.E30901_2003,
+    required this.E30901_2005,
+    required this.E30901_2007,
+    required this.E30901_2008,
+    required this.E30901_2202,
+    required this.E30901_8502,
 
   });
 
@@ -39,6 +61,17 @@ final String typeuser;
       'teacher': teacher,
       'urlPfile': urlPfile,
       'typeuser': typeuser,
+      'grade':grade,
+      'E30000_1204':E30000_1204,
+      'E30000_2003':E30000_2003,
+      'E30001_1001':E30001_1001,
+      'E30901_2003':E30901_2003,
+      'E30901_2005':E30901_2005,
+      'E30901_2007':E30901_2007,
+      'E30901_2008':E30901_2202,
+      'E30901_2008':E30901_8502,
+
+      
     };
   }
 
@@ -50,7 +83,20 @@ final String typeuser;
       divition: map['divition'] as String,
       teacher: map['teacher'] as String,
       urlPfile: map['urlPfile'] as String,
-      typeuser: map['typeuser'] as String,
+      typeuser: map['typeuser'] as String, 
+      grade: map['grade'] as String,
+      E30000_1204: map['E30000_1204'] as String,
+      E30000_2003: map['E30000_2003'] as String,
+      E30001_1001: map['E30001_1001'] as String,
+      E30901_2003: map['E30901_2003'] as String,
+      E30901_2005: map['E30901_2005'] as String,
+      E30901_2007: map['E30901_2007'] as String,
+      E30901_2008: map['E30901_2008'] as String,
+      E30901_2202: map['E30901_2202'] as String,
+      E30901_8502: map['E30901_8502'] as String,
+      
+
+      
       
     );
   }

@@ -17,7 +17,7 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   var titles = <String>[
-    'ประวัตินักศึกษา',
+    'โพส',
     'ผลการเรียน',
     'สถานะตรวจสภาพ',
     'ตรางเรียน',

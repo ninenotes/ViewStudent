@@ -1,121 +1,140 @@
+import 'dart:ffi';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:viewstudent/folder/pcs2.dart';
-import 'package:viewstudent/folder/pvc1.dart';
-import 'package:viewstudent/folder/pvc2.dart';
-import 'package:viewstudent/folder/pvc3.dart';
-import 'package:viewstudent/folder/pvs1.dart';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/show_text.dart';
 
+import '../models/user_model.dart';
+
 class ResultsStuden extends StatefulWidget {
   const ResultsStuden({super.key});
+  
 
   @override
   State<ResultsStuden> createState() => _ResultsStudenState();
 }
 
 class _ResultsStudenState extends State<ResultsStuden> {
-  var titless = <String>[
-    'ปวส 2',
-    'ปวส 1',
-    'ปวช 3',
-    'ปวช 2',
-    'ปวช 1',
-  ];
-  var iconDatass = <IconData>[
-    Icons.folder_open,
-    Icons.folder_open,
-    Icons.folder_open,
-    Icons.folder_open,
-    Icons.folder_open,
-  ];
+    bool load = true;
+  bool? haveData;
+  UserModel? userModel;
+  List<UserModel> userModel1 = [];
+   
+  @override
+  void initState() {
+    super.initState();
+    findProfile();
+  }
+Future findProfile() async {
+    var user = FirebaseAuth.instance.currentUser;
 
+    await FirebaseFirestore.instance
+        .collection('user')
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+              print(value);
+      if (value.data() == null) {
+        haveData = false;
+      } else {
+        haveData = true;
+
+        userModel = UserModel.fromMap(value.data()!);
+      }
+
+      load = false;
+      setState(() {});
+    });
+  }
+
+  
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
+    
+   return Scaffold(
+    appBar: AppBar(
         title: ShowText(
           text: 'ผลการเรียน',
           textStyle: Myconstant().h2whiteStyle(),
         ),
       ),
-      body: ListView.builder(
-        itemCount: titless.length,
-        itemBuilder: (context, index) => InkWell(
-          onTap: () {
-            print('you click index ===> $index');
+    backgroundColor: Colors.white,
+    body:  Column(
+      children: [
+      
+        load == true ?  ShowText(text: "no",textStyle: Myconstant().h2redStyle()) 
+            : haveData == true
+            ?  Expanded(
+               child: ListView(
+                
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                   
+                     children: [
+                      newContent(head: '30000-1204 ภาษาอังกฤษโครงงาน:', value: userModel!.E30000_1204),
+                      newContent(head: 'E30000-2003 กิจกรรมองค์การวิชาชีพ 3 :', value: userModel!.E30000_2003),
+                      newContent(head: 'E30001-1001 การบริหารงานคุณภาพในองค์การ:', value: userModel!.E30001_1001),
+                      newContent(head: 'E30901-2003 การพัฒนาระบบฐานข้อมูล:', value: userModel!.E30901_2003),
+                      newContent(head: 'E30901-2005 การโปรแกรมชิงวัตถุด้วยเทคโนโลยี:', value: userModel!.E30901_2005),
+                      newContent(head: 'E30901-2007 การพัฒนาโปรแกรมบนคอมพิวเตอร์พกพา:', value: userModel!.E30901_2007),
+                      newContent(head: 'E30901_2202 การพัฒนาเว็บด้วยภาษาPHP:', value: userModel!.E30901_2202),
+                      newContent(head: 'E30901_8502 การวิเคราะห์และออกแบบระบบเครื่อข่าย:', value: userModel!.E30901_8502),
+                      newContent(head: 'เกรดรวม:', value: userModel!.grade),
+                     
+                        
+                        
+                     ],
+                   
+                    
+                  
+                ),
+             ) :   ShowText(text: "HELLO WORLD",textStyle: Myconstant().h2redStyle()),
+      ],
+    )
+        
+         );
+   
 
-            switch (index) {
-              case 3:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScorePVC2(),
-                    ));
+                  
+        
+        
+            
+          
 
-                break;
-              case 4:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScorePCV1(),
-                    ));
-                break;
-              case 2:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScorePVC3(),
-                    ));
-
-              break;
-
-              case 1:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScorePVS1(),
-                    ));
-
-              break;
-
-               case 0:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ScorePVS2(),
-                    ));
-
-              break;
-
-              default:
-            }
-          },
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      iconDatass[index],
-                      size: 36,
-                      color: Colors.grey.shade700,
-                    ),
-                  ),
-                  ShowText(
-                    text: titless[index],
-                    textStyle: Myconstant().h2Style(),
-                  ),
-                ],
+      
+  }
+  Column newContent({required String head, required String value}) {
+    return Column(
+      children: [
+        
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Expanded(
+              flex: 1,
+              child: ShowText(
+                text: head,
+                textStyle: Myconstant().h2Style(),
               ),
-              Divider(
-                color: Colors.grey.shade700,
-              ),
-            ],
-          ),
+            ),
+            Expanded(
+              flex: 1,
+              child: ShowText(text: value),
+            ),
+          ],
         ),
-      ),
+        Divider(
+          color: Myconstant.primaryColorLight,
+          thickness: 1,
+          indent: 2,
+          endIndent: 1,
+          height: 25,
+        ),
+        //เส้นบรรทีด// Divider(color: Myconstant.dark,thickness: 1,),
+      ],
     );
   }
 }

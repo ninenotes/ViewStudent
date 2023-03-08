@@ -43,6 +43,7 @@ dependencies:
   searchable_listview: ^2.0.1
   pdf_viewer_jk: ^2.1.5
   webview_flutter: ^3.0.1
+  excel: ^2.0.0-null-safety-3
   
  
   

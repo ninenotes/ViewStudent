@@ -35,6 +35,7 @@ class _ProfileState extends State<Profile> {
         .doc(user!.uid)
         .get()
         .then((value) {
+          
       if (value.data() == null) {
         haveData = false;
       } else {
@@ -74,6 +75,7 @@ class _ProfileState extends State<Profile> {
                   newContent(head: 'ชื่อ:', value: userModel!.name),
                   newContent(head: 'ชั้นปี:', value: userModel!.yearStudent),
                   newContent(head: 'แผนก:', value: userModel!.divition),
+                  newContent(head: 'อาจารย์:', value: userModel!.teacher),
                   newContent(head: 'อาจารย์:', value: userModel!.teacher),
                 ],
               )
