@@ -66,7 +66,7 @@ Future findProfile() async {
     body:  Column(
       children: [
       
-        load == true ?  ShowText(text: "no",textStyle: Myconstant().h2redStyle()) 
+        load == true ?  ShowText(text: "no",textStyle: Myconstant().h2redStyle())
             : haveData == true
             ?  Expanded(
                child: ListView(
@@ -74,14 +74,16 @@ Future findProfile() async {
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                    
                      children: [
-                      newContent(head: '30000-1204 ภาษาอังกฤษโครงงาน:', value: userModel!.E30000_1204),
-                      newContent(head: 'E30000-2003 กิจกรรมองค์การวิชาชีพ 3 :', value: userModel!.E30000_2003),
-                      newContent(head: 'E30001-1001 การบริหารงานคุณภาพในองค์การ:', value: userModel!.E30001_1001),
-                      newContent(head: 'E30901-2003 การพัฒนาระบบฐานข้อมูล:', value: userModel!.E30901_2003),
-                      newContent(head: 'E30901-2005 การโปรแกรมชิงวัตถุด้วยเทคโนโลยี:', value: userModel!.E30901_2005),
-                      newContent(head: 'E30901-2007 การพัฒนาโปรแกรมบนคอมพิวเตอร์พกพา:', value: userModel!.E30901_2007),
-                      newContent(head: 'E30901_2202 การพัฒนาเว็บด้วยภาษาPHP:', value: userModel!.E30901_2202),
-                      newContent(head: 'E30901_8502 การวิเคราะห์และออกแบบระบบเครื่อข่าย:', value: userModel!.E30901_8502),
+                      ShowText(text: 'ภาคเรียนที่ 1 ปีการศึกษา 2565\n\n\n\n',textStyle: Myconstant().h2Style(),),
+                     
+                      newContent(head: '30000-1204 \nภาษาอังกฤษโครงงาน:', value: userModel!.E30000_1204),
+                      newContent(head: 'E30000-2003 \nกิจกรรมองค์การวิชาชีพ 3 :', value: userModel!.E30000_2003),
+                      newContent(head: 'E30001-1001 \nการบริหารงานคุณภาพในองค์การ:', value: userModel!.E30001_1001),
+                      newContent(head: 'E30901-2003 \nการพัฒนาระบบฐานข้อมูล:', value: userModel!.E30901_2003),
+                      newContent(head: 'E30901-2005 \nการโปรแกรมชิงวัตถุด้วยเทคโนโลยี:', value: userModel!.E30901_2005),
+                      newContent(head: 'E30901-2007 \nการพัฒนาโปรแกรมบนคอมพิวเตอร์พกพา:', value: userModel!.E30901_2007),
+                      newContent(head: 'E30901_2202 \nการพัฒนาเว็บด้วยภาษาPHP:', value: userModel!.E30901_2202),
+                      newContent(head: 'E30901_8502 \nการวิเคราะห์และออกแบบระบบเครื่อข่าย:', value: userModel!.E30901_8502),
                       newContent(head: 'เกรดรวม:', value: userModel!.grade),
                      
                         
@@ -121,7 +123,7 @@ Future findProfile() async {
               ),
             ),
             Expanded(
-              flex: 1,
+              flex: 0,
               child: ShowText(text: value),
             ),
           ],
