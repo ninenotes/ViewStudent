@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:viewstudent/models/user_model.dart';
+import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/show_button.dart';
@@ -20,21 +24,21 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
-    
       body: Container(
         decoration: Myconstant().bgBOX(),
         child: ListView(
           children: [
-            Row(mainAxisAlignment: MainAxisAlignment.end,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                
                 ShowIconButton(
-                  
                   iconData: Icons.help,
                   pressFunc: () {
-                    MyDialog(context: context).normalDialog(title: 'How to sign in', subTitle: '\n\nนักเรียน-นักศึกษา : เข้าสู่ระบบโดยใช้ของรหัสนักศึกษา ตามด้วย@sstc.com  \n\n อาจารย์: เข้าสู่ระบบโดยใช้เบอร์โทรตามด้วย @sstc.com');
+                    MyDialog(context: context).normalDialog(
+                        title: 'How to sign in',
+                        subTitle:
+                            '\n\nนักเรียน-นักศึกษา : เข้าสู่ระบบโดยใช้ของรหัสนักศึกษา ตามด้วย@sstc.com  \n\n อาจารย์: เข้าสู่ระบบโดยใช้เบอร์โทรตามด้วย @sstc.com');
                   },
                 ),
               ],
@@ -105,9 +109,39 @@ class _LoginState extends State<Login> {
   Future<void> proccesssCheckLogin() async {
     await FirebaseAuth.instance
         .signInWithEmailAndPassword(email: user!, password: password!)
-        .then((value) {
-      Navigator.pushNamedAndRemoveUntil(
-          context, '/appService', (route) => false);
+        .then((value) async {
+      AppController appController = Get.put(AppController());
+      appController.uidLogins.add(value.user!.uid);
+
+      await FirebaseFirestore.instance
+            .collection('user')
+            .doc(appController.uidLogins.last)
+            .get()
+            .then((value) {
+              
+
+              UserModel userModel = UserModel.fromMap(value.data()!);
+              appController.userModels.add(userModel);
+
+              String keyState = '/${userModel.typeuser}';
+              print('#15 mar keyState ----> $keyState');
+
+
+              Get.offAllNamed(keyState);
+           
+
+
+            });
+
+
+
+
+
+
+
+
+
+
     }).catchError((error) {
       MyDialog(context: context)
           .normalDialog(title: error.code, subTitle: error.message);

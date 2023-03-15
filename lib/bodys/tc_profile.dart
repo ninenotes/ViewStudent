@@ -37,7 +37,7 @@ class _ProfileState extends State<tc_profile> {
         load = false;
         if (value.exists) {
           haveData = true;
-          userModel = UserModel.fromFirestore(value);
+          //userModel = UserModel.fromFirestore(value);
         } else {
           haveData = false;
         }

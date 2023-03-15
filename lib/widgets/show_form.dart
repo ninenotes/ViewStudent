@@ -5,17 +5,21 @@ import 'package:viewstudent/utility/my_constant.dart';
 
 class ShowForm extends StatelessWidget {
   final String hint;
-  final IconData iconData;
+  final IconData? iconData;
   final Function(String) changeFunc;
   final bool? obsecu;
   final TextInputType? textInputType;
+
+final TextEditingController? textEditingController;
+
   const ShowForm({
     Key? key,
     required this.hint,
-    required this.iconData,
+    this.iconData,
     required this.changeFunc,
     this.obsecu,
     this.textInputType,
+    this.textEditingController,
   }) : super(key: key);
 
   @override
@@ -24,13 +28,13 @@ class ShowForm extends StatelessWidget {
       margin: const EdgeInsets.only(top: 16),
       height: 47,
       width: 260,
-      child: TextFormField(
+      child: TextFormField(controller: textEditingController,
         keyboardType: textInputType ?? TextInputType.text,
         obscureText: obsecu ?? false,
         onChanged: changeFunc,
         decoration: InputDecoration(
           hintText: hint,
-          prefixIcon: Icon(
+          prefixIcon:  iconData == null ?  null : Icon(
             iconData,
             color: Myconstant.dark,
           ),
