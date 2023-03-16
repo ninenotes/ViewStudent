@@ -2,8 +2,6 @@
 
 import 'dart:convert';
 
-
-
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class UserModel {
 
@@ -25,6 +23,8 @@ final String E30901_2007;
 final String E30901_2008;
 final String E30901_2202;
 final String E30901_8502;
+final String? email;
+final String? phone;
   UserModel({
     required this.idStudent,
     required this.name,
@@ -43,6 +43,8 @@ final String E30901_8502;
     required this.E30901_2008,
     required this.E30901_2202,
     required this.E30901_8502,
+    this.email,
+    this.phone,
   });
 
   Map<String, dynamic> toMap() {
@@ -64,6 +66,8 @@ final String E30901_8502;
       'E30901_2008': E30901_2008,
       'E30901_2202': E30901_2202,
       'E30901_8502': E30901_8502,
+      'email': email,
+      'phone': phone,
     };
   }
 
@@ -86,6 +90,8 @@ final String E30901_8502;
       E30901_2008: (map['E30901_2008'] ?? '') as String,
       E30901_2202: (map['E30901_2202'] ?? '') as String,
       E30901_8502: (map['E30901_8502'] ?? '') as String,
+      email: map['email'] != null ? map['email'] as String : null,
+      phone: map['phone'] != null ? map['phone'] as String : null,
     );
   }
 

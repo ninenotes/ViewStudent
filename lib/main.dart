@@ -80,7 +80,7 @@ class MyApp extends StatelessWidget {
       initialRoute: keyState,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
-          backgroundColor: Myconstant.primary,
+          backgroundColor: Myconstant.primary,foregroundColor: Colors.black,
         ),
       ),
     );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pdf_viewer_jk/pdf_viewer_jk.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/books.dart';
 
 class BookPage extends StatelessWidget {
@@ -12,11 +14,6 @@ class BookPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(book.title),
         ),
-        body: InteractiveViewer(
-          child:
-           Image.network(
-            book.urLIamgeJP,
-          ),
-        ),
+        body: PhotoView(imageProvider: NetworkImage(Myconstant.urlImage)),
       );
 }

@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:viewstudent/bodys/list_post_student.dart';
 import 'package:viewstudent/bodys/menu.dart';
 import 'package:viewstudent/bodys/menu2.dart';
 import 'package:viewstudent/bodys/profile.dart';
@@ -23,20 +24,19 @@ class _AppServiceStudentState extends State<AppServiceStudent> {
   int indexBody = 1;
   var titles = <String>[
     'โปรไฟล',
-    'เมนู',                                                                  
-    'ค้นหา',
+    'เมนู',
+    'ข่าวสาร',
   ];
   var widgets = <Widget>[
     const Profile(),
     const Menu(),
-      Search(),
-      
+    const ListPostStudent(),
   ];
 
   var iconDatas = <IconData>[
     Icons.account_circle,
     Icons.apps,
-    Icons.search,
+    Icons.newspaper,
   ];
 
   var bottomNavItemBars = <BottomNavigationBarItem>[];
@@ -138,7 +138,7 @@ class _AppServiceStudentState extends State<AppServiceStudent> {
                   });
                 },
               ),
-              RadioListTile(                    
+              RadioListTile(
                 title: ShowText(text: 'อาจารย์'),
                 value: 'teacher',
                 groupValue: typeUser,

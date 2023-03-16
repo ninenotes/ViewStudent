@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:viewstudent/body_teacher/list_covid.dart';
 import 'package:viewstudent/body_teacher/list_post.dart';
+import 'package:viewstudent/bodys/menu2.dart';
+import 'package:viewstudent/bodys/tc_profile.dart';
+import 'package:viewstudent/states/search_teacher.dart';
 import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/show_icon_button.dart';
@@ -18,11 +21,17 @@ class AppServiceTeacher extends StatefulWidget {
 class _AppServiceTeacherState extends State<AppServiceTeacher> {
   var title = <String>[
     'Post News',
+    'Menu',
     'Covid 19',
   ];
-  var iconDatas = <IconData>[Icons.newspaper, Icons.coronavirus_rounded];
+  var iconDatas = <IconData>[
+    Icons.newspaper,
+    Icons.menu_book,
+    Icons.coronavirus_rounded,
+  ];
   var bodys = <Widget>[
     const ListPost(),
+    const Menu2(),
     const ListCovid(),
   ];
   var bottomNavBarItems = <BottomNavigationBarItem>[];
@@ -53,14 +62,28 @@ class _AppServiceTeacherState extends State<AppServiceTeacher> {
                 textStyle: Myconstant().h2Style(),
               ),
               actions: [
+                // ShowIconButton(
+                //   iconData: Icons.exit_to_app,
+                //   pressFunc: () async {
+                //     await FirebaseAuth.instance.signOut().then((value) {
+                //       Get.offAllNamed('/login');
+                //     });
+                //   },
+                // ),
                 ShowIconButton(
-                  iconData: Icons.exit_to_app,
-                  pressFunc: () async {
-                    await FirebaseAuth.instance.signOut().then((value) {
-                     Get.offAllNamed('/login');
-                    });
+                  iconData: Icons.person,
+                  pressFunc: () {
+                    Get.to(const tc_profile());
                   },
-                )
+                  color: Colors.black,
+                ),
+                ShowIconButton(
+                  iconData: Icons.search,
+                  pressFunc: () {
+                    Get.to(const SearchTeacher());
+                  },
+                  color: Colors.black,
+                ),
               ],
             ),
             body: bodys[appController.indexBody.value],
