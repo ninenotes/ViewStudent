@@ -14,6 +14,6 @@ class BookPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(book.title),
         ),
-        body: PhotoView(imageProvider: NetworkImage(Myconstant.urlImage)),
+        body: PhotoView(imageProvider: NetworkImage(book.urLIamgeJP)),
       );
 }

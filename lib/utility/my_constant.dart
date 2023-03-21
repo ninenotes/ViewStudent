@@ -4,6 +4,11 @@ import 'package:flutter/src/painting/gradient.dart';
 class Myconstant {
   static String urlImage = '';
   static Color primary = Color.fromARGB(212, 50, 223, 253);
+  static Color yellOW = Colors.yellow;
+  static Color pink = Colors.pink;
+  static Color orange = Colors.orange;
+  static Color green = Colors.green;
+  static Color skyblue = Colors.lightBlue;
 
   static Color dark = Color.fromARGB(255, 0, 0, 0);
 

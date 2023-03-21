@@ -6,6 +6,7 @@ import 'package:viewstudent/bodys/acadmic_results.dart';
 import 'package:viewstudent/bodys/check_status.dart';
 import 'package:viewstudent/bodys/history.dart';
 import 'package:viewstudent/bodys/time_table.dart';
+import 'package:viewstudent/folder/table5np1.dart';
 import 'package:viewstudent/timetablelayer/tbpvc1.dart';
 import 'package:viewstudent/timetablelayer/tbpvc2.dart';
 import 'package:viewstudent/timetablelayer/tbpvc3.dart';
@@ -24,7 +25,7 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   var titles = <String>[
-    'โพส',
+   
     'ผลการเรียน',
     'สถานะตรวจสภาพ',
     'ตรางเรียน',
@@ -32,7 +33,7 @@ class _MenuState extends State<Menu> {
     'ออกจากระบบ',
   ];
   var iconDatas = <IconData>[
-    Icons.history_edu,
+
     Icons.school,
     Icons.check_box,
     Icons.table_chart,
@@ -60,11 +61,11 @@ class _MenuState extends State<Menu> {
               print('you click index ===> $index');
 
               switch (index) {
-                case 5:
+                case 4:
                   processSingOut();
 
                   break;
-                case 4:
+                case 3:
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -73,26 +74,20 @@ class _MenuState extends State<Menu> {
 
                   break;
 
-                case 0:
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HistoryStuden(),
-                      ));
-                  break;
+               
 
-                case 1:
+                case 0:
                   Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => const ResultsStuden(),
                       ));
                   break;
-                case 2:
+                case 1:
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const CheckStuden()));
                   break;
-                case 3:
+                case 2:
 
                 String yearsStudent = appController.userModels.last.yearStudent;
 
@@ -137,7 +132,7 @@ class _MenuState extends State<Menu> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TbPVS2(),
+                      builder: (context) => const Table5np1(),
                     ));
 
               break;

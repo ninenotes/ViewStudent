@@ -1,26 +1,18 @@
 import 'package:flutter/material.dart';
-
-import 'package:viewstudent/bodys/h_foder/h_pvc1.dart';
-import 'package:viewstudent/bodys/h_foder/h_pvc2.dart';
-import 'package:viewstudent/bodys/h_foder/h_pvc3.dart';
-import 'package:viewstudent/bodys/h_foder/h_pvs1.dart';
-import 'package:viewstudent/bodys/h_foder/h_pvs2.dart';
-import 'package:viewstudent/folder/pcs2.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/show_text.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 
-
-class HistoryStuden extends StatefulWidget {
-  const HistoryStuden({super.key});
+class Teacher_Score extends StatefulWidget {
+  const Teacher_Score({super.key});
 
   @override
-  State<HistoryStuden> createState() => _HistoryStudenState();
-  
+  State<Teacher_Score> createState() => _Teacher_ScoreState();
 }
 
-class _HistoryStudenState extends State<HistoryStuden> {
-   var titless = <String>[
+class _Teacher_ScoreState extends State<Teacher_Score> {
+  @override
+
+     var titless = <String>[
     'ปวส 2',
     'ปวส 1',
     'ปวช 3',
@@ -54,7 +46,7 @@ class _HistoryStudenState extends State<HistoryStuden> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ScorePVS2(),
+                      builder: (context) => const Teacher_Score(),
                     ));
 
                 break;
@@ -62,14 +54,14 @@ class _HistoryStudenState extends State<HistoryStuden> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const h_pvc1(),
+                      builder: (context) => const Teacher_Score(),
                     ));
                 break;
               case 2:
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const h_pvc3(),
+                      builder: (context) => const Teacher_Score(),
                     ));
 
               break;
@@ -78,7 +70,7 @@ class _HistoryStudenState extends State<HistoryStuden> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const h_pvs1(),
+                      builder: (context) => const Teacher_Score(),
                     ));
 
               break;
@@ -87,7 +79,7 @@ class _HistoryStudenState extends State<HistoryStuden> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const h_pvs2(),
+                      builder: (context) => const Teacher_Score(),
                     ));
 
               break;
@@ -121,5 +113,5 @@ class _HistoryStudenState extends State<HistoryStuden> {
         ),
       ),
     );
-}
+  }
 }

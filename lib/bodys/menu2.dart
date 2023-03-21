@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:viewstudent/bodys/acadmic_results.dart';
 import 'package:viewstudent/bodys/check_status.dart';
+import 'package:viewstudent/bodys/h_foder/sum_score.dart';
+import 'package:viewstudent/bodys/h_foder/t_score_pvs2.dart';
 import 'package:viewstudent/bodys/history.dart';
 import 'package:viewstudent/bodys/time_table.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
@@ -21,7 +23,7 @@ class _MenuState extends State<Menu2> {
     'สถานะตรวจสภาพ',
     'ตรางเรียน',
     'ออกจากระบบ',
-    'สถานะโควิด'
+    
   ];
   var iconDatas = <IconData>[
     Icons.history_edu,
@@ -29,7 +31,7 @@ class _MenuState extends State<Menu2> {
     Icons.check_box,
     Icons.table_chart,
     Icons.exit_to_app,
-   Icons.share_arrival_time
+   
   ];
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class _MenuState extends State<Menu2> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const ResultsStuden(),
+                    builder: (context) => const SumScore(),
                   ));
               break;
             case 2:

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:viewstudent/bodys/h_foder/sum_table.dart';
+import 'package:viewstudent/folder/table5np1.dart';
 import 'package:viewstudent/timetablelayer/tbpvc1.dart';
 import 'package:viewstudent/timetablelayer/tbpvc2.dart';
 import 'package:viewstudent/timetablelayer/tbpvc3.dart';
@@ -55,7 +57,7 @@ class TableSuten extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TbPVC2(),
+                      builder: (context) => const SumTable(),
                     ));
 
                 break;
@@ -63,14 +65,14 @@ class TableSuten extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TbPVC1(),
+                      builder: (context) => const SumTable(),
                     ));
                 break;
               case 2:
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TbPVC3(),
+                      builder: (context) => const SumTable(),
                     ));
 
               break;
@@ -79,7 +81,7 @@ class TableSuten extends StatelessWidget {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TbPVS1(),
+                      builder: (context) => const SumTable(),
                     ));
 
               break;
@@ -88,7 +90,7 @@ class TableSuten extends StatelessWidget {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TbPVS2(),
+                      builder: (context) => const SumTable(),
                     ));
 
               break;

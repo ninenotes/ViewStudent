@@ -28,7 +28,7 @@ class _ScorePVC2State extends State<ScorePVS2> {
     await Firebase.initializeApp().then((value) async {
       print('initialize Success');
       await FirebaseFirestore.instance
-          .collection('score5')
+          .collection('5np1')
           .orderBy('name')
           .snapshots()
           .listen((event) {
@@ -51,13 +51,13 @@ class _ScorePVC2State extends State<ScorePVS2> {
 
   Widget createwidget(ScoreModel model, int index) => GestureDetector(
         onTap: () {
-          print('You Click from index =$index');
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) =>
-                    ShowPdfView(scoreModel: scoreModels[index]),
-              ));
+          // print('You Click from index =$index');
+          // Navigator.push(
+          //     context,
+          //     MaterialPageRoute(
+          //       builder: (context) =>
+          //           ShowPdfView(scoreModel: scoreModels[index]),
+          //     ));
         },
         child: Card(
           child: Center(

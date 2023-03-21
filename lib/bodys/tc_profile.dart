@@ -41,18 +41,18 @@ class _ProfileState extends State<tc_profile> {
                           children: [
                             Column(
                               children: [
-                                Row(
-                                  children: [
+                                
+                                  
                                     Container(
                                       //decoration:BoxDecoration(boxShadow: [BoxShadow(blurRadius: 22,color:Myconstant.primary )]) ,
                                       margin: const EdgeInsets.symmetric(
                                           vertical: 18),
-                                      width: 125,
-                                      height: 200,
+                                      width: 150,
+                                      height: 250,
                                       child: Image.network(appController.userModels.last.urlPfile),
                                     ),
-                                  ],
-                                ),
+                                  
+                                
                                 Divider(
                                   color: Myconstant.dark,
                                 )
