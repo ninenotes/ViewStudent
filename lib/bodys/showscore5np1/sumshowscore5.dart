@@ -1,37 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:viewstudent/bodys/h_foder/t_score_pvs2.dart';
+import 'package:viewstudent/bodys/showscore5np1/showscore1.dart';
+import 'package:viewstudent/bodys/showscore5np1/showscore5.dart';
+import 'package:viewstudent/bodys/time_table.dart';
 import 'package:viewstudent/folder/pvc1.dart';
 import 'package:viewstudent/folder/pvc2.dart';
 import 'package:viewstudent/folder/pvc3.dart';
 import 'package:viewstudent/folder/pvs1.dart';
+import 'package:viewstudent/folder/table5np1.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/show_text.dart';
 
-class SumScore extends StatelessWidget {
-  const SumScore({super.key});
+class SumShowscore5 extends StatelessWidget {
+  const SumShowscore5({super.key});
 
   @override
   Widget build(BuildContext context) {
      var titless = <String>[
-   'ปวส.2',
-    'ปวส.1',
-    'ปวช.3',
-    'ปวช.2',
-    'ปวช.1',
+   'เทอม 1',
+    'เทอม 2',
+  
   ];
   var iconDatass = <IconData>[
     Icons.folder_open,
     Icons.folder_open,
-    Icons.folder_open,
-    Icons.folder_open,
-    Icons.folder_open,
+   
   ];
 
     
     return Scaffold(
       appBar: AppBar(
           title: ShowText(
-        text: 'ผลการเรียน ',
+        text: 'เกรด 5นพ1',
         textStyle: Myconstant().h2whiteStyle(),
       )),
       body: ListView.builder(
@@ -45,7 +45,7 @@ class SumScore extends StatelessWidget {
                 // Navigator.push(
                 //     context,
                 //     MaterialPageRoute(
-                //       builder: (context) => const ScorePVC2(),
+                //       builder: (context) => const Table5np1(),
                 //     ));
 
                 break;
@@ -53,14 +53,14 @@ class SumScore extends StatelessWidget {
                 // Navigator.push(
                 //     context,
                 //     MaterialPageRoute(
-                //       builder: (context) => const ScorePCV1(),
+                //       builder: (context) => const Table5np1(),
                 //     ));
                 break;
               case 2:
               // Navigator.push(
               //       context,
               //       MaterialPageRoute(
-              //         builder: (context) => const ScorePVC3(),
+              //         builder: (context) => const Table5np1(),
               //       ));
 
               break;
@@ -69,7 +69,7 @@ class SumScore extends StatelessWidget {
               // Navigator.push(
               //       context,
               //       MaterialPageRoute(
-              //         builder: (context) => const ScorePVS1(),
+              //         builder: (context) => const Table5np1(),
               //       ));
 
               break;
@@ -78,7 +78,7 @@ class SumScore extends StatelessWidget {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const TeacherScore_pvs2(),
+                      builder: (context) => const Showscore5(),
                     ));
 
               break;

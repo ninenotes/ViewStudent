@@ -22,10 +22,12 @@ class ShowButton extends StatelessWidget {
           ElevatedButton.styleFrom(primary: colorPriamry ?? Myconstant.primary),
       onPressed: pressFunc,
       child: ShowText(
+        
         text: lable,
         textStyle: colorPriamry == null
             ? Myconstant().h2whiteStyle()
             : Myconstant().h3whiteStyle(),
+            
       ),
     );
   }

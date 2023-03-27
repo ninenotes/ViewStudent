@@ -47,6 +47,7 @@ class _ListCovidState extends State<ListCovid> {
                 children: [
                   Column(
                     children: [
+                      ShowText(text: 'เพิ่มรายชื่อคนติดโควิด',textStyle: Myconstant().h2Style(),),
                       ShowForm(
                         hint: 'Name : ',
                         changeFunc: (p0) {
@@ -141,95 +142,137 @@ class _ListCovidState extends State<ListCovid> {
                           child: Column(
                             children: [
                               Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ShowText(
-                                    text: 'รายชื่อคนเป็น Covid19',
-                                    textStyle: Myconstant().h2Style(),
-                                  ),
-                                  appController.covidModels.isEmpty
-                                      ? const SizedBox()
-                                      : ListView.builder(
-                                          shrinkWrap: true,
-                                          physics: const ScrollPhysics(),
-                                          itemCount:
-                                              appController.covidModels.length,
-                                          itemBuilder: (context, index) =>
-                                              InkWell(
-                                            onTap: () {
-                                              appController.indexUpdates
-                                                  .add(index);
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ShowText(
+                                      text: 'รายชื่อคนเป็น Covid19',
+                                      textStyle: Myconstant().h2Style(),
+                                    ),
+                                    appController.covidModels.isEmpty
+                                        ? const SizedBox()
+                                        : ListView.builder(
+                                            shrinkWrap: true,
+                                            physics: const ScrollPhysics(),
+                                            itemCount: appController
+                                                .covidModels.length,
+                                            itemBuilder: (context, index) =>
+                                                InkWell(
+                                              onTap: () {
+                                                appController.indexUpdates
+                                                    .add(index);
 
-                                              nameController.text =
-                                                  appController
-                                                      .covidModels[index].name;
-                                              idController.text = appController
-                                                  .covidModels[index].id;
-                                              dateController.text =
-                                                  appController
-                                                      .covidModels[index].date;
-                                            },
-                                            child: Card(
-                                              child: Padding(
-                                                padding:
-                                                    const EdgeInsets.all(8.0),
-                                                child: Column(
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.start,
-                                                  children: [
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        ShowText(
-                                                            text: appController
-                                                                .covidModels[
-                                                                    index]
-                                                                .name),
-                                                        ShowText(
-                                                            text: appController
-                                                                .covidModels[
-                                                                    index]
-                                                                .id),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      mainAxisAlignment:
-                                                          MainAxisAlignment
-                                                              .spaceBetween,
-                                                      children: [
-                                                        ShowText(
-                                                            text: appController
-                                                                .covidModels[
-                                                                    index]
-                                                                .date),
-                                                        ShowIconButton(
-                                                          iconData:
-                                                              Icons.delete,
-                                                          pressFunc: () async {
-                                                            await FirebaseFirestore
-                                                                .instance
-                                                                .collection(
-                                                                    'covid')
-                                                                .doc(appController
-                                                                        .docIdCovids[
-                                                                    index])
-                                                                .delete()
-                                                                .then((value) =>
-                                                                    null);
-                                                          },
-                                                        )
-                                                      ],
-                                                    ),
-                                                  ],
+                                                nameController.text =
+                                                    appController
+                                                        .covidModels[index]
+                                                        .name;
+                                                idController.text =
+                                                    appController
+                                                        .covidModels[index].id;
+                                                dateController.text =
+                                                    appController
+                                                        .covidModels[index]
+                                                        .date;
+                                              },
+                                              child: Card(
+                                                child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(8.0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          ShowText(
+                                                              text: appController
+                                                                  .covidModels[
+                                                                      index]
+                                                                  .name),
+                                                          ShowText(
+                                                              text: appController
+                                                                  .covidModels[
+                                                                      index]
+                                                                  .id),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          ShowText(
+                                                              text: appController
+                                                                  .covidModels[
+                                                                      index]
+                                                                  .date),
+                                                          ShowIconButton(
+                                                            iconData:
+                                                                Icons.delete,
+                                                            pressFunc:
+                                                                () async {
+                                                              final result =
+                                                                  await showDialog<
+                                                                      bool>(
+                                                                context:
+                                                                    context,
+                                                                builder:
+                                                                    (context) =>
+                                                                        AlertDialog(
+                                                                  title: const Text(
+                                                                      'คุณแน่ใจไหม ?'),
+                                                                  content:
+                                                                      const Text(
+                                                                          'ถ้าต้องลบ เลือก Delete'),
+                                                                  actions: [
+                                                                    TextButton(
+                                                                      onPressed: () => Navigator.pop(
+                                                                          context,
+                                                                          true),
+                                                                      child: const Text(
+                                                                          'Delete'),
+                                                                    ),
+                                                                    TextButton(
+                                                                      onPressed: () => Navigator.pop(
+                                                                          context,
+                                                                          false),
+                                                                      child: const Text(
+                                                                          'Cancel',style: TextStyle( color: Color(0xffF02E65)),),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              );
+
+                                                              if (result ==
+                                                                      null ||
+                                                                  !result) {
+                                                                return;
+                                                              }
+                                                              await FirebaseFirestore
+                                                                  .instance
+                                                                  .collection(
+                                                                      'covid')
+                                                                  .doc(appController
+                                                                          .docIdCovids[
+                                                                      index])
+                                                                  .delete()
+                                                                  .then(
+                                                                      (value) =>
+                                                                          null);
+                                                            },
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ],
+                                                  ),
                                                 ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                ],
-                              ),
+                                  ]),
                             ],
                           ),
                         ),
@@ -239,5 +282,13 @@ class _ListCovidState extends State<ListCovid> {
             );
           });
     });
+  }
+
+  Future<Null> delete(CovidModel covidModel) async {
+    showDialog(
+      context: context,
+      builder: (context) =>
+          SimpleDialog(title: Myconstant().titleHx1('ต้องการลบ')),
+    );
   }
 }

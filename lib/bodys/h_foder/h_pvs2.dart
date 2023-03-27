@@ -39,35 +39,35 @@ class h_pvs2 extends StatelessWidget {
 
             switch (index) {
               case 3:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const History5np1(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const History5np1(),
+                //     ));
 
                 break;
               case 4:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const History5np1(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const History5np1(),
+                //     ));
                 break;
               case 2:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const History5np1(),
-                    ));
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const History5np1(),
+              //       ));
 
               break;
 
               case 1:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const History5np1(),
-                    ));
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const History5np1(),
+              //       ));
 
               break;
 

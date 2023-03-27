@@ -7,6 +7,14 @@ import 'package:viewstudent/bodys/showscore5np1/showscore5.dart';
 import 'package:viewstudent/bodys/showscore5np1/showscore6.dart';
 import 'package:viewstudent/bodys/showscore5np1/showscore7.dart';
 import 'package:viewstudent/bodys/showscore5np1/showscore8.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore1.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore2.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore3.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore4.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore5.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore6.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore7.dart';
+import 'package:viewstudent/bodys/showscore5np1/sumshowscore8.dart';
 import 'package:viewstudent/folder/pvc1.dart';
 
 class Score5np1 extends StatefulWidget {
@@ -83,7 +91,7 @@ class _Score5np1State extends State<Score5np1> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore1(),
+                      builder: (context) => const SumShowscore1(),
                     ));
 
                 break;
@@ -91,14 +99,14 @@ class _Score5np1State extends State<Score5np1> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore2(),
+                      builder: (context) => const SumShowscore2(),
                     ));
                 break;
               case '64309010003':
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore3(),
+                      builder: (context) => const SumShowscore3(),
                     ));
 
               break;
@@ -107,7 +115,7 @@ class _Score5np1State extends State<Score5np1> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore4(),
+                      builder: (context) => const SumShowscore4(),
                     ));
 
               break;
@@ -116,7 +124,7 @@ class _Score5np1State extends State<Score5np1> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore5(),
+                      builder: (context) => const SumShowscore5(),
                     ));
 
               break;
@@ -124,7 +132,7 @@ class _Score5np1State extends State<Score5np1> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore6(),
+                      builder: (context) => const SumShowscore6(),
                     ));
 
               break;
@@ -132,7 +140,7 @@ class _Score5np1State extends State<Score5np1> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore7(),
+                      builder: (context) => const SumShowscore7(),
                     ));
 
               break;
@@ -140,7 +148,7 @@ class _Score5np1State extends State<Score5np1> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Showscore8(),
+                      builder: (context) => const SumShowscore8(),
                     ));
 
               break;

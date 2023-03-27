@@ -54,35 +54,35 @@ class TableSuten extends StatelessWidget {
 
             switch (index) {
               case 3:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SumTable(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const SumTable(),
+                //     ));
 
                 break;
               case 4:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SumTable(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const SumTable(),
+                //     ));
                 break;
               case 2:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SumTable(),
-                    ));
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const SumTable(),
+              //       ));
 
               break;
 
               case 1:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const SumTable(),
-                    ));
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const SumTable(),
+              //       ));
 
               break;
 

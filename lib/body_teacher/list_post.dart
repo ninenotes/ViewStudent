@@ -64,12 +64,45 @@ class _ListPostState extends State<ListPost> {
                                         ShowText(
                                             text: appController
                                                 .postModels[index].post),
+                                        ShowText(
+                                            text: appController
+                                                .postModels[index].timestamp
+                                                .toDate()
+                                                .toString()),
                                       ],
                                     ),
                                     ShowIconButton(
-                                      iconData: Icons.delete,
-                                      pressFunc: () async {
-                                        String docId =
+                                        iconData: Icons.delete,
+                                        pressFunc: () async {
+                                          final result = await showDialog<bool>(
+                                            context: context,
+                                            builder: (context) => AlertDialog(
+                                              title:
+                                                  const Text('คุณแน่ใจไหม ?'),
+                                              content: const Text(
+                                                  'ถ้าต้องลบ เลือก Delete'),
+                                              actions: [
+                                                
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          context, true),
+                                                  child: const Text('Delete'),
+                                                ),
+                                                TextButton(
+                                                  onPressed: () =>
+                                                      Navigator.pop(
+                                                          context, false),
+                                                  child: const Text('Cancel',style: TextStyle( color: Color(0xffF02E65)),),
+                                                ),
+                                              ],
+                                            ),
+                                          );
+
+                                          if (result == null || !result) {
+                                            return;
+                                          }
+                                           String docId =
                                             appController.docIdPosts[index];
                                         print('docId ----> $docId');
 
@@ -78,8 +111,21 @@ class _ListPostState extends State<ListPost> {
                                             .doc(docId)
                                             .delete()
                                             .then((value) => null);
-                                      },
-                                    )
+
+
+                                        
+                                        }
+                                        // String docId =
+                                        //     appController.docIdPosts[index];
+                                        // print('docId ----> $docId');
+
+                                        // await FirebaseFirestore.instance
+                                        //     .collection('post')
+                                        //     .doc(docId)
+                                        //     .delete()
+                                        //     .then((value) => null);
+
+                                        )
                                   ],
                                 ),
                               ),

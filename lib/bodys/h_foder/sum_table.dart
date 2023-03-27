@@ -5,6 +5,7 @@ import 'package:viewstudent/folder/pvc1.dart';
 import 'package:viewstudent/folder/pvc2.dart';
 import 'package:viewstudent/folder/pvc3.dart';
 import 'package:viewstudent/folder/pvs1.dart';
+import 'package:viewstudent/folder/sumtable5np1.dart';
 import 'package:viewstudent/folder/table5np1.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/show_text.dart';
@@ -15,11 +16,11 @@ class SumTable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
      var titless = <String>[
-   'ปวส.2',
-    'ปวส.1',
-    'ปวช.3',
-    'ปวช.2',
-    'ปวช.1',
+   '5นพ1',
+    '5ทท1',
+    '5มค1',
+    '5ฮว1',
+    '5ออ1',
   ];
   var iconDatass = <IconData>[
     Icons.folder_open,
@@ -44,35 +45,35 @@ class SumTable extends StatelessWidget {
 
             switch (index) {
               case 3:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Table5np1(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const Table5np1(),
+                //     ));
 
                 break;
               case 4:
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Table5np1(),
-                    ));
+                // Navigator.push(
+                //     context,
+                //     MaterialPageRoute(
+                //       builder: (context) => const Table5np1(),
+                //     ));
                 break;
               case 2:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Table5np1(),
-                    ));
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const Table5np1(),
+              //       ));
 
               break;
 
               case 1:
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const Table5np1(),
-                    ));
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //         builder: (context) => const Table5np1(),
+              //       ));
 
               break;
 
@@ -80,7 +81,7 @@ class SumTable extends StatelessWidget {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const Table5np1(),
+                      builder: (context) => const SumTable5np1(),
                     ));
 
               break;
