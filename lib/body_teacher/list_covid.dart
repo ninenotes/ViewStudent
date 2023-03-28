@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:viewstudent/bodys/COVID_19.dart';
+
 import 'package:viewstudent/models/covid_model.dart';
-import 'package:viewstudent/states/add_covid19.dart';
+
 import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/app_service.dart';
 import 'package:viewstudent/utility/my_constant.dart';
@@ -12,7 +12,9 @@ import 'package:viewstudent/widgets/show_button.dart';
 import 'package:viewstudent/widgets/show_form.dart';
 import 'package:viewstudent/widgets/show_icon_button.dart';
 import 'package:viewstudent/widgets/show_text.dart';
-
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
+import 'package:intl/intl_standalone.dart';
 class ListCovid extends StatefulWidget {
   const ListCovid({super.key});
 
@@ -30,6 +32,7 @@ class _ListCovidState extends State<ListCovid> {
   @override
   void initState() {
     super.initState();
+   
     AppService().redCovid();
   }
 
@@ -47,40 +50,88 @@ class _ListCovidState extends State<ListCovid> {
                 children: [
                   Column(
                     children: [
-                      ShowText(text: 'เพิ่มรายชื่อคนติดโควิด',textStyle: Myconstant().h2Style(),),
-                      ShowForm(
-                        hint: 'Name : ',
-                        changeFunc: (p0) {
-                          name = p0.trim();
-                        },
-                        textEditingController: nameController,
-                      ),
-                      ShowForm(
-                        hint: 'id : ',
-                        changeFunc: (p0) {
-                          id = p0.trim();
-                        },
-                        textEditingController: idController,
-                      ),
-                      ShowForm(
-                        hint: 'Date : ',
-                        changeFunc: (p0) {
-                          date = p0.trim();
-                        },
-                        textEditingController: dateController,
+                      ShowText(
+                        text: 'เพิ่มรายชื่อคนติดโควิด',
+                        textStyle: Myconstant().h2Style(),
                       ),
                       Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ShowIconButton(iconData: Icons.person, pressFunc: () {
+                            
+                          },),
+                          ShowForm(
+                            hint: 'Name : ',
+                            changeFunc: (p0) {
+                              name = p0.trim();
+                            },
+                            textEditingController: nameController,
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment:MainAxisAlignment.center ,
+                        children: [
+                          ShowIconButton(iconData: Icons.fingerprint_outlined, pressFunc: () {
+                            
+                          },),
+                          ShowForm(
+                            hint: 'id : ',
+                            changeFunc: (p0) {
+                              id = p0.trim();
+                            },
+                            textEditingController: idController,
+                          ),
+                        ],
+                      ),
+                      Row(mainAxisAlignment:MainAxisAlignment.center ,
+                        children: [
+                             ShowIconButton(
+                            iconData: Icons.calendar_today_rounded,
+                            pressFunc: () async{
+                                DateTime? pickeddate = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(2000),
+                            lastDate: DateTime(2101),
+                          );
+                          if (pickeddate != null) {
+                            String formattedDate=  DateFormat('yyyy-MM-dd').format(pickeddate);
+                           
+                            setState(() {
+                              
+                            dateController.text = formattedDate.toString();
+                            });
+                            } else {
+                              print('flail');
+                          }
+                            },
+                          ),
+                          
+                          ShowForm(
+                            //iconData: Icons.calendar_today_rounded,
+
+                            hint: 'Date : ',
+                            changeFunc: (p0) async {
+                              date = dateController.text;
+                            },
+                            textEditingController: dateController,
+                          ),
+                       
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           ShowButton(
-                            lable: 'Save',
+                            lable: 'บันทึก',
                             pressFunc: () async {
                               if ((name?.isEmpty ?? true) ||
                                   (id?.isEmpty ?? true) ||
                                   (date?.isEmpty ?? true)) {
                                 MyDialog(context: context).normalDialog(
-                                    title: 'Have Space ?',
-                                    subTitle: 'Please Fill Every Blank');
+                                    title: 'มีพื้นที่ว่าง ?',
+                                    subTitle: 'กรุณาเติมทุกช่องว่าง');
                               } else {
                                 CovidModel covidModel = CovidModel(
                                     name: name!, id: id!, date: date!);
@@ -97,14 +148,14 @@ class _ListCovidState extends State<ListCovid> {
                             },
                           ),
                           ShowButton(
-                            lable: 'Update',
+                            lable: 'อัพเดท',
                             pressFunc: () async {
                               if ((nameController.text.isEmpty) ||
                                   (idController.text.isEmpty) ||
                                   (dateController.text.isEmpty)) {
                                 MyDialog(context: context).normalDialog(
-                                    title: 'Have Space ?',
-                                    subTitle: 'Please Fill Every Blank');
+                                    title: 'มีพื้นที่ว่าง ?',
+                                    subTitle: 'กรุณาเติมทุกช่องว่าง');
                               } else {
                                 String docId = appController.docIdCovids[
                                     appController.indexUpdates.last];
@@ -226,21 +277,23 @@ class _ListCovidState extends State<ListCovid> {
                                                                       'คุณแน่ใจไหม ?'),
                                                                   content:
                                                                       const Text(
-                                                                          'ถ้าต้องลบ เลือก Delete'),
+                                                                          'ถ้าต้องลบ เลือก ลบ'),
                                                                   actions: [
                                                                     TextButton(
                                                                       onPressed: () => Navigator.pop(
                                                                           context,
                                                                           true),
                                                                       child: const Text(
-                                                                          'Delete'),
+                                                                          'ลบ'),
                                                                     ),
                                                                     TextButton(
                                                                       onPressed: () => Navigator.pop(
                                                                           context,
                                                                           false),
                                                                       child: const Text(
-                                                                          'Cancel',style: TextStyle( color: Color(0xffF02E65)),),
+                                                                          'ยกเลิก',
+                                                                          style:
+                                                                              TextStyle(color: Color(0xffF02E65))),
                                                                     ),
                                                                   ],
                                                                 ),

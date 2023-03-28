@@ -1,5 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import 'package:viewstudent/utility/my_constant.dart';
 
@@ -9,8 +10,11 @@ class ShowForm extends StatelessWidget {
   final Function(String) changeFunc;
   final bool? obsecu;
   final TextInputType? textInputType;
+  final OnTap? onTap;
 
 final TextEditingController? textEditingController;
+
+
 
   const ShowForm({
     Key? key,
@@ -19,7 +23,7 @@ final TextEditingController? textEditingController;
     required this.changeFunc,
     this.obsecu,
     this.textInputType,
-    this.textEditingController,
+    this.textEditingController,  this.onTap,
   }) : super(key: key);
 
   @override

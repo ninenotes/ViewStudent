@@ -68,6 +68,8 @@ class _Searchdat extends State<Search> {
                     onTap: () => Navigator.push(
                       context,
                       
+                  
+                      
                       MaterialPageRoute(
                         
                         builder: (context) => BookPage(book:book) ,

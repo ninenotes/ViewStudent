@@ -183,7 +183,7 @@ showDialogFunc(context, img, title, desc,comment) {
                  Text(
                   desc,
                   style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold,
                   ),
@@ -195,7 +195,7 @@ showDialogFunc(context, img, title, desc,comment) {
                 
                   style: TextStyle(
                     
-                    fontSize: 18,
+                    fontSize: 14,
                     color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold,
                   ),

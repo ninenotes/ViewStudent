@@ -25,6 +25,7 @@ final String E30901_2202;
 final String E30901_8502;
 final String? email;
 final String? phone;
+final String? advisor;
   UserModel({
     required this.idStudent,
     required this.name,
@@ -45,6 +46,7 @@ final String? phone;
     required this.E30901_8502,
     this.email,
     this.phone,
+    this.advisor
   });
 
   Map<String, dynamic> toMap() {
@@ -68,6 +70,7 @@ final String? phone;
       'E30901_8502': E30901_8502,
       'email': email,
       'phone': phone,
+      'advisor':advisor,
     };
   }
 
@@ -92,6 +95,7 @@ final String? phone;
       E30901_8502: (map['E30901_8502'] ?? '') as String,
       email: map['email'] != null ? map['email'] as String : null,
       phone: map['phone'] != null ? map['phone'] as String : null,
+      advisor: map['advisor'] != null ? map['advisor'] as String : null,
     );
   }
 

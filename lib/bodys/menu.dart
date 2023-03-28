@@ -186,17 +186,29 @@ class _MenuState extends State<Menu> {
     );
   }
 
-  Future<void> processSingOut() async {
-    MyDialog(context: context).normalDialog(
-      title: 'คุณต้องการออกจากระบบ ?',
-      subTitle: 'Please Confirm SingOut',
-      label: 'SingOut',
-      pressFunc: () async {
-        await FirebaseAuth.instance.signOut().then((value) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/login', (route) => false);
-        });
-      },
+ Future<void> processSingOut() async {
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('ต้องการออกจากระบบ ?'),
+        content: const Text('กรุณายืนยัน'),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut().then((value) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/login', (route) => false);
+              });
+            },
+            child: const Text('ออกจากระบบ'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('ยกเลิก',
+                style: TextStyle(color: Color(0xffF02E65))),
+          ),
+        ],
+      ),
     );
   }
 }

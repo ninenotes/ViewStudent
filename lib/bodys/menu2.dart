@@ -23,7 +23,6 @@ class _MenuState extends State<Menu2> {
     'สถานะตรวจสภาพ',
     'ตรางเรียน',
     'ออกจากระบบ',
-    
   ];
   var iconDatas = <IconData>[
     Icons.history_edu,
@@ -31,7 +30,6 @@ class _MenuState extends State<Menu2> {
     Icons.check_box,
     Icons.table_chart,
     Icons.exit_to_app,
-   
   ];
   @override
   Widget build(BuildContext context) {
@@ -66,8 +64,13 @@ class _MenuState extends State<Menu2> {
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const CheckStuden()));
               break;
-            case 3:Navigator.push(context, MaterialPageRoute(builder: (context) => const TableSuten(),));
-            break;
+            case 3:
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const TableSuten(),
+                  ));
+              break;
             default:
           }
         },
@@ -94,17 +97,28 @@ class _MenuState extends State<Menu2> {
   }
 
   Future<void> processSingOut() async {
-
-    MyDialog(context: context).normalDialog(
-      title: 'คุณต้องการออกจากระบบ ?',
-      subTitle: 'Please Confirm SingOut',
-      label: 'SingOut',
-      pressFunc: () async {
-        await FirebaseAuth.instance.signOut().then((value) {
-          Navigator.pushNamedAndRemoveUntil(
-              context, '/login', (route) => false);
-        });
-      },
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('ต้องการออกจากระบบ ?'),
+        content: const Text('กรุณายืนยัน'),
+        actions: [
+          TextButton(
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut().then((value) {
+                Navigator.pushNamedAndRemoveUntil(
+                    context, '/login', (route) => false);
+              });
+            },
+            child: const Text('ออกจากระบบ'),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(context, false),
+            child: const Text('ยกเลิก',
+                style: TextStyle(color: Color(0xffF02E65))),
+          ),
+        ],
+      ),
     );
   }
 }

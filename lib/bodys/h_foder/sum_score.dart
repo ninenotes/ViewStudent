@@ -34,7 +34,10 @@ class SumScore extends StatelessWidget {
         text: 'ผลการเรียน ',
         textStyle: Myconstant().h2whiteStyle(),
       )),
-      body: ListView.builder(
+      
+      body: 
+      
+      ListView.builder(
         itemCount: titless.length,
         itemBuilder: (context, index) => InkWell(
           onTap: () {

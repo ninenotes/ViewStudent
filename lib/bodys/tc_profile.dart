@@ -61,7 +61,7 @@ class _ProfileState extends State<tc_profile> {
                             Row(
                               children: [
                                 ShowText(
-                                  text: 'name : ${appController.userModels.last.name}',
+                                  text: 'ชื่อ : ${appController.userModels.last.name}',
                                   textStyle: Myconstant().h2Style(),
                                 ),
                               ],
@@ -74,7 +74,7 @@ class _ProfileState extends State<tc_profile> {
                               children: [
                                 ShowText(
                                   text:
-                                      'email :  ${appController.userModels.last.email}',
+                                      'อีเมล :  ${appController.userModels.last.email}',
                                   textStyle: Myconstant().h2Style(),
                                 ),
                               ],
@@ -86,7 +86,22 @@ class _ProfileState extends State<tc_profile> {
                             Row(
                               children: [
                                 ShowText(
-                                  text: 'phone :  ${appController.userModels.last.phone}',
+                                  text: 'เบอร์โทรศัพ :  ${appController.userModels.last.phone}',
+                                  textStyle: Myconstant().h2Style(),
+                                ),
+                              ],
+                            ),
+                             Divider(
+                              color: Myconstant.dark,
+                              thickness: 1,
+                            ),
+                            
+                             Row(
+                              children: [
+                                
+                                ShowText(
+                                  
+                                  text: 'อาจารย์ที่ปรึกษา : ${appController.userModels.last.advisor}',
                                   textStyle: Myconstant().h2Style(),
                                 ),
                               ],
