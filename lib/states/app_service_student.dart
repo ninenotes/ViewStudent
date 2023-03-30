@@ -23,9 +23,9 @@ class AppServiceStudent extends StatefulWidget {
 class _AppServiceStudentState extends State<AppServiceStudent> {
   int indexBody = 1;
   var titles = <String>[
-    'โปรไฟล',
-    'เมนู',
-    'ข่าวสาร',
+    'Profile',
+    'Menu',
+    'Post News',
   ];
   var widgets = <Widget>[
     const Profile(),

@@ -216,7 +216,7 @@ class _AddProfileStudentState extends State<AddProfileStudent> {
           grade: '',
           E30000_1204: '',
           E30000_2003: '',
-          E30001_1001: '', E30901_2003: '', E30901_2005: '', E30901_2007: '', E30901_2008: '', E30901_2202: '', E30901_8502: '',
+          E30001_1001: '', E30901_2003: '', E30901_2005: '', E30901_2007: '', E30901_2008: '', E30901_2202: '', E30901_8502: '', avagrade: '',
         );
 
         await FirebaseFirestore.instance

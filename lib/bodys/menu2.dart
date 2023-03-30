@@ -110,12 +110,11 @@ class _MenuState extends State<Menu2> {
                     context, '/login', (route) => false);
               });
             },
-            child: const Text('ออกจากระบบ'),
+            child: const Text('ออกจากระบบ',style: TextStyle(color: Color(0xffF02E65))),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, false),
-            child: const Text('ยกเลิก',
-                style: TextStyle(color: Color(0xffF02E65))),
+            child: const Text('ยกเลิก'),
           ),
         ],
       ),

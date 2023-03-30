@@ -4,16 +4,15 @@ import 'package:get/get.dart';
 import 'package:viewstudent/bodys/COVID_19.dart';
 import 'package:viewstudent/bodys/acadmic_results.dart';
 import 'package:viewstudent/bodys/check_status.dart';
-import 'package:viewstudent/bodys/history.dart';
-import 'package:viewstudent/bodys/time_table.dart';
+
 import 'package:viewstudent/folder/table5np1.dart';
 import 'package:viewstudent/timetablelayer/tbpvc1.dart';
 import 'package:viewstudent/timetablelayer/tbpvc2.dart';
 import 'package:viewstudent/timetablelayer/tbpvc3.dart';
 import 'package:viewstudent/timetablelayer/tbpvs1.dart';
-import 'package:viewstudent/timetablelayer/tbpvs2.dart';
+
 import 'package:viewstudent/utility/app_controller.dart';
-import 'package:viewstudent/utility/my_dialog.dart';
+
 import 'package:viewstudent/widgets/show_text.dart';
 
 class Menu extends StatefulWidget {
@@ -27,7 +26,7 @@ class _MenuState extends State<Menu> {
   var titles = <String>[
    
     'ผลการเรียน',
-    'สถานะตรวจสภาพ',
+    // 'สถานะตรวจสภาพ',
     'ตรางเรียน',
     'สถานะโควิด',
     'ออกจากระบบ',
@@ -35,7 +34,7 @@ class _MenuState extends State<Menu> {
   var iconDatas = <IconData>[
 
     Icons.school,
-    Icons.check_box,
+    // Icons.check_box,
     Icons.table_chart,
     Icons.vaccines,
     Icons.exit_to_app
@@ -61,11 +60,11 @@ class _MenuState extends State<Menu> {
               print('you click index ===> $index');
 
               switch (index) {
-                case 4:
+                case 3:
                   processSingOut();
 
                   break;
-                case 3:
+                case 2:
                   Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -83,11 +82,11 @@ class _MenuState extends State<Menu> {
                         builder: (context) => const ResultsStuden(),
                       ));
                   break;
+                // case 1:
+                //   Navigator.push(context,
+                //       MaterialPageRoute(builder: (context) => const CheckStuden()));
+                //   break;
                 case 1:
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const CheckStuden()));
-                  break;
-                case 2:
 
                 String yearsStudent = appController.userModels.last.yearStudent;
 
@@ -200,12 +199,12 @@ class _MenuState extends State<Menu> {
                     context, '/login', (route) => false);
               });
             },
-            child: const Text('ออกจากระบบ'),
+            child: const Text('ออกจากระบบ',style: TextStyle(color: Color(0xffF02E65))),
           ),
           TextButton(
             onPressed: () => Navigator.pop(context, false),
             child: const Text('ยกเลิก',
-                style: TextStyle(color: Color(0xffF02E65))),
+                ),
           ),
         ],
       ),

@@ -86,7 +86,7 @@ class _ProfileState extends State<tc_profile> {
                             Row(
                               children: [
                                 ShowText(
-                                  text: 'เบอร์โทรศัพ :  ${appController.userModels.last.phone}',
+                                  text: 'เบอร์โทรศัพท์ :  ${appController.userModels.last.phone}',
                                   textStyle: Myconstant().h2Style(),
                                 ),
                               ],

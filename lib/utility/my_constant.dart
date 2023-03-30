@@ -55,7 +55,7 @@ class Myconstant {
   TextStyle h3Style() => TextStyle(
         fontSize: 14,
         color: dark,
-        fontWeight: FontWeight.normal,
+       // fontWeight: FontWeight.normal,
       );
 
   Widget titleHx1(String string) => Text(

@@ -52,7 +52,8 @@ return
                       newContent(head: '30901-2007 \nการพัฒนาโปรแกรมบนคอมพิวเตอร์พกพา:', value: '${data['E30901_2007']}'),
                       newContent(head: '30901_2202 \nการพัฒนาเว็บด้วยภาษาPHP:', value: '${data['E30901_2202']}'),
                       newContent(head: '30901_8502 \nการวิเคราะห์และออกแบบระบบเครื่อข่าย:', value: '${data['E30901_8502']}'),
-                       newContent(head: 'เกรดรวม:', value: '${data['grade']}'),
+                        newContent(head: 'คะแนนเฉลียในภาคนี้:', value: '${data['avagrade']}'),
+                       newContent(head: 'คะแนนเฉลียสม:', value: '${data['grade']}'),
                      
                         
                         
