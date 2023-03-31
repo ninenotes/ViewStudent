@@ -65,6 +65,8 @@ class _Searchdat extends State<Search> {
                       height: 50,
                     ),
                     title: Text(book.title),
+                    
+                    
                     onTap: () => Navigator.push(
                       context,
                       
