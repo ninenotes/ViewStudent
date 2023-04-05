@@ -17,14 +17,16 @@ import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl_standalone.dart';
 
-class add_datacovid19 extends StatefulWidget {
-  const add_datacovid19({super.key});
+class Updatacovid extends StatefulWidget {
+  // const Updatacovid({super.key,required Map this.data});
+    const Updatacovid({super.key,});
+  //  final Map data;
 
   @override
-  State<add_datacovid19> createState() => _adddatacovid19State();
+  State<Updatacovid> createState() => _UpdatacovidState();
 }
 
-class _adddatacovid19State extends State<add_datacovid19> {
+class _UpdatacovidState extends State<Updatacovid> {
     String? name, id, date;
 
   TextEditingController nameController = TextEditingController();
@@ -35,7 +37,7 @@ class _adddatacovid19State extends State<add_datacovid19> {
   return Scaffold(
       appBar: AppBar(
         title: ShowText(
-          text: 'เพิ่มรายชื่อคนติดโควิด',
+          text: 'แก้ไขรายชื่อคนติดโควิด',
           textStyle: Myconstant().h2whiteStyle(),
         ),
       ),

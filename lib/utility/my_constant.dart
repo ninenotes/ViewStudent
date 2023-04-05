@@ -3,7 +3,7 @@ import 'package:flutter/src/painting/gradient.dart';
 
 class Myconstant {
   static String urlImage = '';
-  static Color primary = Color.fromARGB(212, 50, 223, 253);
+  static Color primary = Colors.lightBlue;
   static Color yellOW = Colors.yellow;
   static Color pink = Colors.pink;
   static Color orange = Colors.orange;
