@@ -10,12 +10,14 @@ class PostModel {
   final String urlPost;
   final String post;
   final Timestamp timestamp;
+  final String? urlImage;
   PostModel({
     required this.uidPost,
     required this.namePost,
     required this.urlPost,
     required this.post,
     required this.timestamp,
+    this.urlImage,
   });
   
 
@@ -26,6 +28,7 @@ class PostModel {
       'urlPost': urlPost,
       'post': post,
       'timestamp': timestamp,
+      'urlImage': urlImage,
     };
   }
 
@@ -36,8 +39,11 @@ class PostModel {
       urlPost: (map['urlPost'] ?? '') as String,
       post: (map['post'] ?? '') as String,
       timestamp: (map['timestamp']),
+      urlImage: map['urlImage'] ?? '',
     );
   }
+
+  //  timestamp: (map['timestamp']),
 
   String toJson() => json.encode(toMap());
 

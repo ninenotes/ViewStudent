@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:viewstudent/models/post_model.dart';
 import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/app_service.dart';
@@ -8,6 +12,8 @@ import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/show_form.dart';
 import 'package:viewstudent/widgets/show_icon_button.dart';
 import 'package:viewstudent/widgets/show_text.dart';
+import 'package:path/path.dart';
+import 'package:viewstudent/widgets/widget_image_network.dart';
 
 class ListPost extends StatefulWidget {
   const ListPost({super.key});
@@ -50,7 +56,7 @@ class _ListPostState extends State<ListPost> {
                             itemBuilder: (context, index) => Card(
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
-                                child: Row(
+                                child: Row(crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
@@ -64,6 +70,15 @@ class _ListPostState extends State<ListPost> {
                                         ShowText(
                                             text: appController
                                                 .postModels[index].post),
+                                        appController.postModels[index]
+                                                .urlImage!.isEmpty
+                                            ? const SizedBox()
+                                            : SizedBox(width: 250,
+                                              child: WidgetImageNetwork(
+                                                  urlImage: appController
+                                                      .postModels[index]
+                                                      .urlImage!),
+                                            ),
                                         ShowText(
                                             text: appController
                                                 .postModels[index].timestamp
@@ -82,7 +97,6 @@ class _ListPostState extends State<ListPost> {
                                               content: const Text(
                                                   'ถ้าต้องลบ เลือก Delete'),
                                               actions: [
-                                                
                                                 TextButton(
                                                   onPressed: () =>
                                                       Navigator.pop(
@@ -93,7 +107,12 @@ class _ListPostState extends State<ListPost> {
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           context, false),
-                                                  child: const Text('Cancel',style: TextStyle( color: Color(0xffF02E65)),),
+                                                  child: const Text(
+                                                    'Cancel',
+                                                    style: TextStyle(
+                                                        color:
+                                                            Color(0xffF02E65)),
+                                                  ),
                                                 ),
                                               ],
                                             ),
@@ -102,18 +121,15 @@ class _ListPostState extends State<ListPost> {
                                           if (result == null || !result) {
                                             return;
                                           }
-                                           String docId =
-                                            appController.docIdPosts[index];
-                                        print('docId ----> $docId');
+                                          String docId =
+                                              appController.docIdPosts[index];
+                                          print('docId ----> $docId');
 
-                                        await FirebaseFirestore.instance
-                                            .collection('post')
-                                            .doc(docId)
-                                            .delete()
-                                            .then((value) => null);
-
-
-                                        
+                                          await FirebaseFirestore.instance
+                                              .collection('post')
+                                              .doc(docId)
+                                              .delete()
+                                              .then((value) => null);
                                         }
                                         // String docId =
                                         //     appController.docIdPosts[index];
@@ -147,37 +163,110 @@ class _ListPostState extends State<ListPost> {
                             },
                             textEditingController: textEditingController,
                           ),
-                          ShowIconButton(
-                            iconData: Icons.newspaper,
-                            pressFunc: () async {
-                              if (post?.isEmpty ?? true) {
-                                MyDialog(context: context).normalDialog(
-                                    title: 'Post?',
-                                    subTitle: 'Plase Fill Post');
-                              } else {
-                                PostModel postModel = PostModel(
-                                    uidPost: appController.uidLogins.last,
-                                    namePost:
-                                        appController.userModels.last.name,
-                                    urlPost:
-                                        appController.userModels.last.urlPfile,
-                                    post: post!,
-                                    timestamp:
-                                        Timestamp.fromDate(DateTime.now()));
+                          Row(
+                            children: [
+                              ShowIconButton(
+                                iconData: Icons.newspaper,
+                                pressFunc: () async {
+                                  if (post?.isEmpty ?? true) {
+                                    MyDialog(context: context).normalDialog(
+                                        title: 'Post?',
+                                        subTitle: 'Plase Fill Post');
+                                  } else {
+                                    if (appController.files.isEmpty) {
+                                      PostModel postModel = PostModel(
+                                          uidPost: appController.uidLogins.last,
+                                          namePost: appController
+                                              .userModels.last.name,
+                                          urlPost: appController
+                                              .userModels.last.urlPfile,
+                                          post: post!,
+                                          urlImage: '',
+                                          timestamp: Timestamp.fromDate(
+                                              DateTime.now()));
 
-                                print('postModel ===> ${postModel.toMap()}');
+                                      print(
+                                          'postModel ===> ${postModel.toMap()}');
 
-                                await FirebaseFirestore.instance
-                                    .collection('post')
-                                    .doc()
-                                    .set(postModel.toMap())
-                                    .then((value) {
-                                  print('Insert Post Success');
-                                });
+                                      await FirebaseFirestore.instance
+                                          .collection('post')
+                                          .doc()
+                                          .set(postModel.toMap())
+                                          .then((value) {
+                                        print('Insert Post Success');
+                                      });
 
-                                textEditingController.text = '';
-                              }
-                            },
+                                      textEditingController.text = '';
+                                    } else {
+                                      String nameFile = basename(
+                                          appController.files.last.path);
+
+                                      FirebaseStorage storage =
+                                          FirebaseStorage.instance;
+                                      Reference reference =
+                                          storage.ref().child('Post/$nameFile');
+                                      UploadTask uploadTask = reference
+                                          .putFile(appController.files.last);
+                                      await uploadTask.whenComplete(() async {
+                                        await reference
+                                            .getDownloadURL()
+                                            .then((value) async {
+                                          PostModel postModel = PostModel(
+                                              uidPost:
+                                                  appController.uidLogins.last,
+                                              namePost: appController
+                                                  .userModels.last.name,
+                                              urlPost: appController
+                                                  .userModels.last.urlPfile,
+                                              post: post!,
+                                              urlImage: value,
+                                              timestamp: Timestamp.fromDate(
+                                                  DateTime.now()));
+
+                                          print(
+                                              'postModel ===> ${postModel.toMap()}');
+
+                                          await FirebaseFirestore.instance
+                                              .collection('post')
+                                              .doc()
+                                              .set(postModel.toMap())
+                                              .then((value) {
+                                            print('Insert Post Success');
+                                          });
+
+                                          textEditingController.text = '';
+                                          appController.files.clear();
+                                        });
+                                      });
+                                    }
+                                  }
+                                },
+                              ),
+                              appController.files.isEmpty
+                                  ? ShowIconButton(
+                                      iconData: Icons.add_photo_alternate,
+                                      pressFunc: () async {
+                                        var result = await ImagePicker()
+                                            .pickImage(
+                                                source: ImageSource.gallery,
+                                                maxWidth: 800,
+                                                maxHeight: 800);
+                                        if (result != null) {
+                                          File file = File(result.path);
+                                          appController.files.add(file);
+                                        }
+                                      },
+                                    )
+                                  : Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Image.file(
+                                        appController.files.last,
+                                        width: 36,
+                                        height: 36,
+                                        fit: BoxFit.cover,
+                                      ),
+                                    )
+                            ],
                           )
                         ],
                       ),

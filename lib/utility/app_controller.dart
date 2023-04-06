@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:get/get.dart';
 import 'package:viewstudent/bodys/COVID_19.dart';
 import 'package:viewstudent/models/covid_model.dart';
@@ -14,6 +16,6 @@ class AppController extends GetxController {
   RxList<CovidModel> covidModels = <CovidModel>[].obs;
   RxList<String> docIdCovids = <String>[].obs;
   RxList<int> indexUpdates = <int>[].obs;
-
   RxList<Model5np1> model5np1s = <Model5np1>[].obs;
+  RxList<File> files = <File>[].obs;
 }
