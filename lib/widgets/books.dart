@@ -18,6 +18,13 @@ const allBooks = [
         'https://firebasestorage.googleapis.com/v0/b/viewstudent-43d90.appspot.com/o/timetable%2Fimage%2F1%E0%B8%8A%E0%B8%AD1%E0%B8%811.jpg?alt=media&token=152a6b0c-6df3-4a15-89e6-2c5f38444978',
   ),
   Book(
+    title: 'ตรางสอน 1ชอ1ก1',
+    urLIamge:
+        'https://e7.pngegg.com/pngimages/318/385/png-clipart-computer-icons-book-cover-symbol-book-angle-text.png',
+    urLIamgeJP:
+        'https://firebasestorage.googleapis.com/v0/b/viewstudent-43d90.appspot.com/o/timetable%2Fimage%2F1%E0%B8%8A%E0%B8%AD1%E0%B8%811.jpg?alt=media&token=152a6b0c-6df3-4a15-89e6-2c5f38444978',
+  ),
+  Book(
     title: 'ตรางสอน 1ชอ1ก2',
     urLIamge:
         'https://e7.pngegg.com/pngimages/318/385/png-clipart-computer-icons-book-cover-symbol-book-angle-text.png',

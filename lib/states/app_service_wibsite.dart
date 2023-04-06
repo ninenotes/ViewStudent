@@ -252,7 +252,7 @@ class _AppServiceWebsiteState extends State<AppServiceWebsite> {
                   E30901_2007: E30901_2007,
                   E30901_2008: E30901_2008,
                   E30901_2202: E30901_2202,
-                  E30901_8502: E30901_8502, avagrade: '');
+                  E30901_8502: E30901_8502, avagrade: 0.0);
 
 
 

@@ -85,8 +85,8 @@ Future findProfile() async {
                       newContent(head: '30901-2007 \nการพัฒนาโปรแกรมบนคอมพิวเตอร์พกพา:', value: userModel!.E30901_2007),
                       newContent(head: '30901_2202 \nการพัฒนาเว็บด้วยภาษาPHP:', value: userModel!.E30901_2202),
                       newContent(head: '30901_8502 \nการวิเคราะห์และออกแบบระบบเครื่อข่าย:', value: userModel!.E30901_8502),
-                       newContent(head: 'คะแนนเฉลียในภาคนี้:', value:  userModel!.avagrade),
-                       newContent(head: 'คะแนนเฉลียสม:', value:  userModel!.grade),
+                       newContent(head: 'คะแนนเฉลียในภาคนี้:', value:  userModel!.avagrade.toString()),
+                       newContent(head: 'คะแนนเฉลียสม:', value:  userModel!.grade.toString()),
                      
                         
                         

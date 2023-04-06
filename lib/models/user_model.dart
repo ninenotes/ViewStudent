@@ -13,7 +13,7 @@ final String divition;
 final String  teacher;
 final String  urlPfile;
 final String typeuser;
-final String grade;
+final double grade;
 final String E30000_1204;
 final String E30000_2003;
 final String E30001_1001;
@@ -26,7 +26,7 @@ final String E30901_8502;
 final String? email;
 final String? phone;
 final String? advisor;
-final String avagrade;
+final double avagrade;
   UserModel({
     required this.idStudent,
     required this.name,
@@ -86,7 +86,7 @@ final String avagrade;
       teacher: (map['teacher'] ?? '') as String,
       urlPfile: (map['urlPfile'] ?? '') as String,
       typeuser: (map['typeuser'] ?? '') as String,
-      grade: (map['grade'] ?? '') as String,
+      grade: (map['grade'] ?? 0.0) as double,
       E30000_1204: (map['E30000_1204'] ?? '') as String,
       E30000_2003: (map['E30000_2003'] ?? '') as String,
       E30001_1001: (map['E30001_1001'] ?? '') as String,
@@ -99,7 +99,7 @@ final String avagrade;
       email: map['email'] != null ? map['email'] as String : null,
       phone: map['phone'] != null ? map['phone'] as String : null,
       advisor: map['advisor'] != null ? map['advisor'] as String : null,
-       avagrade: (map['avagrade'] ?? '') as String,
+      avagrade: (map['avagrade'] ?? 0.0) as double,
     );
   }
 
