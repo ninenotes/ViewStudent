@@ -19,7 +19,9 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl_standalone.dart';
 
 class ListCovid extends StatefulWidget {
-  const ListCovid({super.key, });
+  const ListCovid({
+    super.key,
+  });
   // final Map data;
 
   @override
@@ -42,7 +44,7 @@ class _ListCovidState extends State<ListCovid> {
 
   @override
   // Widget showdata({required Map userMap}){
-  Widget build(BuildContext context  ) {
+  Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, BoxConstraints boxConstraints) {
       return GetX(
           init: AppController(),
@@ -315,8 +317,16 @@ class _ListCovidState extends State<ListCovid> {
                                                                       MaterialPageRoute(
                                                                         builder:
                                                                             (context) =>
-                                                                                 Updatacovid( ),
-                                                                      ));
+                                                                                Updatacovid(
+                                                                          covidModel:
+                                                                              appController.covidModels[index],
+                                                                          docIdCovid:
+                                                                              appController.docIdCovids[index],
+                                                                        ),
+                                                                      )).then((value) {
+                                                                    AppService()
+                                                                        .redCovid();
+                                                                  });
                                                                 },
                                                               ),
                                                               ShowIconButton(
