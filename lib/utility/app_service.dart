@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:viewstudent/models/covid_model.dart';
 import 'package:viewstudent/models/model_5np1.dart';
 import 'package:viewstudent/models/post_model.dart';
@@ -8,6 +9,18 @@ import 'package:viewstudent/utility/app_controller.dart';
 
 class AppService {
   AppController appController = Get.put(AppController());
+
+String timeToString({required Timestamp timestamp}){
+
+DateFormat dateFormat = DateFormat('dd MMM yyyy HH:mm');
+DateTime dateTime = timestamp.toDate();
+return dateFormat.format(dateTime);
+}
+
+
+
+
+
 
   Future<void> read5np1Data() async {
     if (appController.model5np1s.isNotEmpty) {

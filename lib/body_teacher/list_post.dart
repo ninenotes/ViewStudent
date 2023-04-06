@@ -80,10 +80,7 @@ class _ListPostState extends State<ListPost> {
                                                       .urlImage!),
                                             ),
                                         ShowText(
-                                            text: appController
-                                                .postModels[index].timestamp
-                                                .toDate()
-                                                .toString()),
+                                            text: AppService().timeToString(timestamp: appController.postModels[index].timestamp)),
                                       ],
                                     ),
                                     ShowIconButton(

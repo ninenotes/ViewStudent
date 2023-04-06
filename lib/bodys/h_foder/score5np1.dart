@@ -56,7 +56,7 @@ class _Score5np1State extends State<Score5np1> {
 
   // Image Name List Here
   var imgList = [
-    "images/num1.jpg",
+    "images/1.jpg",
     "images/2.jpg",
     "images/3.jpg",
     "images/4.jpg",

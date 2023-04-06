@@ -45,13 +45,13 @@ class _adddatacovid19State extends State<add_datacovid19> {
         onPressed: () async {
               if ((name?.isEmpty ?? true) ||
                                   (id?.isEmpty ?? true) ||
-                                  (date?.isEmpty ?? true)) {
+                                  (dateController.text.isEmpty)) {
                                 MyDialog(context: context).normalDialog(
                                     title: 'มีพื้นที่ว่าง ?',
                                     subTitle: 'กรุณาเติมทุกช่องว่าง');
                               } else {
                                 CovidModel covidModel = CovidModel(
-                                    name: name!, id: id!, date: date!);
+                                    name: name!, id: id!, date: dateController.text);
                                 await FirebaseFirestore.instance
                                     .collection('covid')
                                     .doc()

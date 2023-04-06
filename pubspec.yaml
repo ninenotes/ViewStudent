@@ -48,6 +48,7 @@ dependencies:
   photo_view: ^0.14.0
   calendar_date_picker2: ^0.4.9
   cached_network_image: ^3.2.1
+  intl: ^0.17.0
   
  
   
