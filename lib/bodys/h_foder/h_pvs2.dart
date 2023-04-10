@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:viewstudent/bodys/h_foder/5mk1.dart';
+import 'package:viewstudent/bodys/h_foder/h_5aa1.dart';
+import 'package:viewstudent/bodys/h_foder/h_5hv1.dart';
 import 'package:viewstudent/bodys/h_foder/h_5np1.dart';
+import 'package:viewstudent/bodys/h_foder/h_5tt1.dart';
 
 import '../../utility/my_constant.dart';
 import '../../widgets/show_text.dart';
@@ -28,7 +32,7 @@ class h_pvs2 extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           title: ShowText(
-        text: 'ประวัติ ปวส 2',
+        text: 'ประวัตินักศึกษา ปวส 2',
         textStyle: Myconstant().h2whiteStyle(),
       )),
       body: ListView.builder(
@@ -38,36 +42,36 @@ class h_pvs2 extends StatelessWidget {
             print('you click index ===> $index');
 
             switch (index) {
-              case 3:
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const History5np1(),
-                //     ));
+              case 4:
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const History5aa1(),
+                    ));
 
                 break;
-              case 4:
-                // Navigator.push(
-                //     context,
-                //     MaterialPageRoute(
-                //       builder: (context) => const History5np1(),
-                //     ));
+              case 3:
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const History5hv1(),
+                    ));
                 break;
               case 2:
-              // Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => const History5np1(),
-              //       ));
+              Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const History5mk1(),
+                    ));
 
               break;
 
               case 1:
-              // Navigator.push(
-              //       context,
-              //       MaterialPageRoute(
-              //         builder: (context) => const History5np1(),
-              //       ));
+              Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const History5tt1(),
+                    ));
 
               break;
 

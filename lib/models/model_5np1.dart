@@ -11,6 +11,7 @@ final String address;
   final String nationality;
   final String phone;
   final String phone2;
+  final String  bloodtype;
   Model5np1({
     required this.address,
     required this.date,
@@ -21,6 +22,7 @@ final String address;
     required this.nationality,
     required this.phone,
     required this.phone2,
+    required this.bloodtype,
   });
   
 
@@ -35,6 +37,7 @@ final String address;
       'nationality': nationality,
       'phone': phone,
       'phone2': phone2,
+      'bloodtype': bloodtype,
     };
   }
 
@@ -49,6 +52,7 @@ final String address;
       nationality: (map['nationality'] ?? '') as String,
       phone: (map['phone'] ?? '') as String,
       phone2: (map['phone2'] ?? '') as String,
+      bloodtype: (map['bloodtype'] ?? '') as String,
     );
   }
 

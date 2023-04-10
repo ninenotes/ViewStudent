@@ -19,12 +19,12 @@ class Table5np1 extends StatelessWidget {
         children: [
           ShowText(
             text:
-                '643090101\nเทคโนโลยีสารสนเทศ\tนักพัฒนาซอฟต์แวร์\n/1 ปวส.2 |2564',
+                '643090101\nเทคโนโลยีสารสนเทศ\tนักพัฒนาซอฟต์แวร์\n 1 ปวส.2 |2564',
             textStyle: Myconstant().h2Style(),
           ),
           Divider(
             color: Myconstant.dark,
-            thickness: 1,
+            thickness: 5,
             indent: 2,
             endIndent: 1,
             height: 25,
@@ -151,6 +151,7 @@ class Table5np1 extends StatelessWidget {
             Expanded(
               flex: 1,
               child: ShowText(
+                
                 text: value1,
                 textStyle: Myconstant().h2Style(),
               ),

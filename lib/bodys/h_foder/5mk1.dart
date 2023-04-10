@@ -6,14 +6,14 @@ import 'package:viewstudent/utility/dialog.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/widget_image_network.dart';
 
-class History5np1 extends StatefulWidget {
-  const History5np1({super.key});
+class History5mk1 extends StatefulWidget {
+  const History5mk1({super.key});
 
   @override
-  State<History5np1> createState() => _History5np1State();
+  State<History5mk1> createState() => _History5mk1State();
 }
 
-class _History5np1State extends State<History5np1> {
+class _History5mk1State extends State<History5mk1> {
   @override
 
   // Title List Here
@@ -44,7 +44,7 @@ class _History5np1State extends State<History5np1> {
   void initState() {
     super.initState();
 
-    AppService().read5np1Data();
+    AppService().read5mk1Data();
   }
 
   @override
@@ -60,7 +60,7 @@ class _History5np1State extends State<History5np1> {
             appBar: AppBar(
               // App Bar
               title: Text(
-                "ประวัตินักศึกษา  5นพ1",
+                "ประวัตินักศึกษา  5มค1",
                 style: TextStyle(color: Colors.black),
               ),
               elevation: 0,

@@ -4,6 +4,7 @@ import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/app_service.dart';
 import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/widgets/show_text.dart';
+import 'package:viewstudent/widgets/widget_image_network.dart';
 
 class ListPostStudent extends StatefulWidget {
   const ListPostStudent({super.key});
@@ -35,18 +36,23 @@ class _ListPostStudentState extends State<ListPostStudent> {
                       padding: const EdgeInsets.all(8.0),
                       child: Column(crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          ShowText(
-                            text: appController.postModels[index].post,
-                            textStyle: Myconstant().h2Style(),
-                          ),
-                            ShowText(
-                            text: appController.postModels[index].timestamp.toDate().toString(),
-                            textStyle: Myconstant().h3Style(),
-                          ),
-                            ShowText(
-                            text: appController.postModels[index].namePost,
-                            textStyle: Myconstant().h3Style(),
-                          ),
+                           ShowText(
+                                            text: appController
+                                                .postModels[index].namePost),
+                                        ShowText(
+                                            text: appController
+                                                .postModels[index].post),
+                                        appController.postModels[index]
+                                                .urlImage!.isEmpty
+                                            ? const SizedBox()
+                                            : SizedBox(width: 250,
+                                              child: WidgetImageNetwork(
+                                                  urlImage: appController
+                                                      .postModels[index]
+                                                      .urlImage!),
+                                            ),
+                                        ShowText(
+                                            text: AppService().timeToString(timestamp: appController.postModels[index].timestamp)),
                         ],
                       ),
                     ),

@@ -39,7 +39,7 @@ class _HistoryStudenState extends State<HistoryStuden> {
     return Scaffold(
       appBar: AppBar(
         title: ShowText(
-          text: 'ประวัตินักเรียน',
+          text: 'ประวัตินักศึกษา',
           textStyle: Myconstant().h2whiteStyle(),
         ),
       ),

@@ -34,6 +34,56 @@ return dateFormat.format(dateTime);
       }
     });
   }
+  
+  Future<void> read5tt1Data() async {
+    if (appController.model5np1s.isNotEmpty) {
+      appController.model5np1s.clear();
+    }
+    await FirebaseFirestore.instance.collection('5tt1').orderBy('idStudent')
+    .get().then((value) {
+      for (var element in value.docs) {
+        Model5np1 model5np1 = Model5np1.fromMap(element.data());
+        appController.model5np1s.add(model5np1);
+      }
+    });
+  }
+    Future<void> read5aa1Data() async {
+    if (appController.model5np1s.isNotEmpty) {
+      appController.model5np1s.clear();
+    }
+    await FirebaseFirestore.instance.collection('5aa1').orderBy('idStudent')
+    .get().then((value) {
+      for (var element in value.docs) {
+        Model5np1 model5np1 = Model5np1.fromMap(element.data());
+        appController.model5np1s.add(model5np1);
+      }
+    });
+  }
+   Future<void> read5mk1Data() async {
+    if (appController.model5np1s.isNotEmpty) {
+      appController.model5np1s.clear();
+    }
+    await FirebaseFirestore.instance.collection('5mk1').orderBy('idStudent')
+    .get().then((value) {
+      for (var element in value.docs) {
+        Model5np1 model5np1 = Model5np1.fromMap(element.data());
+        appController.model5np1s.add(model5np1);
+      }
+    });
+  }
+   Future<void> read5hv1Data() async {
+    if (appController.model5np1s.isNotEmpty) {
+      appController.model5np1s.clear();
+    }
+    await FirebaseFirestore.instance.collection('5hv1').orderBy('idStudent')
+    .get().then((value) {
+      for (var element in value.docs) {
+        Model5np1 model5np1 = Model5np1.fromMap(element.data());
+        appController.model5np1s.add(model5np1);
+      }
+    });
+  }
+  
 
   Future<void> redCovid() async {
     FirebaseFirestore.instance.collection('covid').snapshots().listen((event) {
