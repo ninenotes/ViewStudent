@@ -9,12 +9,12 @@ class TeacherScore_pvs2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var titless = <String>[
-   '5นพ1',
-    '5ทท1',
-    '5มค1',
-    '5ฮว1',
-    '5ออ1',
+        var titless = <String>[
+    'นักพัฒนาซอฟต์แวร์คอมพิวเตอร์ ',
+    'เทคโนโลยีระบบโทรคมนาคม',
+    'หุ่นยนต์และระบบอัตโนมัติ',
+    'คอมพิวเตอร์ฮาร์ดแวร์',
+    'อิเล็กทรอนิกส์อุตสาหกรรม',
   ];
   var iconDatass = <IconData>[
     Icons.folder_open,

@@ -8,6 +8,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:viewstudent/models/post_model.dart';
 import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/app_service.dart';
+import 'package:viewstudent/utility/my_constant.dart';
 import 'package:viewstudent/utility/my_dialog.dart';
 import 'package:viewstudent/widgets/show_form.dart';
 import 'package:viewstudent/widgets/show_icon_button.dart';
@@ -64,8 +65,9 @@ class _ListPostState extends State<ListPost> {
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        ShowText(
-                                            text: appController
+                                        ShowTexttitle(
+                                         
+                                            text2: appController
                                                 .postModels[index].namePost),
                                         ShowText(
                                             text: appController

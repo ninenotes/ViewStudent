@@ -32,7 +32,7 @@ class Myconstant {
   TextStyle h2Style() => TextStyle(
         fontSize: 18,
         color: dark,
-        fontWeight: FontWeight.w500,
+         fontWeight: FontWeight.w500,
       );
 
   TextStyle h2whiteStyle() => const TextStyle(
@@ -53,9 +53,20 @@ class Myconstant {
       );
 
   TextStyle h3Style() => TextStyle(
+   
         fontSize: 14,
         color: dark,
-       // fontWeight: FontWeight.normal,
+        // fontWeight: FontWeight.bold
+       
+      );
+
+       TextStyle h44Style() => TextStyle(
+    fontStyle: FontStyle.italic,
+
+        fontSize: 14,
+        color: dark,
+        fontWeight: FontWeight.bold
+       ,
       );
 
   Widget titleHx1(String string) => Text(

@@ -60,7 +60,7 @@ class _History5mk1State extends State<History5mk1> {
             appBar: AppBar(
               // App Bar
               title: Text(
-                "ประวัตินักศึกษา  5มค1",
+                "หุ่นยนต์และระบบอัตโนมัติ",
                 style: TextStyle(color: Colors.black),
               ),
               elevation: 0,

@@ -74,7 +74,7 @@ class _Score5np1State extends State<Score5np1> {
       appBar: AppBar(
         // App Bar
         title: Text(
-          "5นพ1",
+          "นักพัฒนาซอฟต์แวร์คอมพิวเตอร์",
           style: TextStyle(color: Colors.black),
         ),
         elevation: 0,

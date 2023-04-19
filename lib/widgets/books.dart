@@ -613,14 +613,14 @@ const allBooks = [
         'https://firebasestorage.googleapis.com/v0/b/viewstudent-43d90.appspot.com/o/scorepvc2%2FIMG_20230328_051000.jpg?alt=media&token=b493570c-f3ee-43d0-86e9-176994263d51',
    ),
     Book(
-    title: 'จิระเดช คุ้มศิริ',
+    title: 'จิระเดช   คุ้มศิริ',
     urLIamge:
         'https://firebasestorage.googleapis.com/v0/b/viewstudent-43d90.appspot.com/o/profile4np1%2F336390908_940234520500897_3891625269459278049_n.jpg?alt=media&token=e61018d3-6dd6-4c81-89a4-17ff0da0e3e2',
     urLIamgeJP:
         'https://firebasestorage.googleapis.com/v0/b/viewstudent-43d90.appspot.com/o/scorepvc2%2FIMG_20230328_050940.jpg?alt=media&token=ce1c8870-0dd9-4f1c-a3ec-0c525b68677f',
    ),
    Book(
-    title: 'ธนดล จำปาเต็ม',
+    title: 'ธนดล  จำปาเต็ม',
     urLIamge:
         'https://firebasestorage.googleapis.com/v0/b/viewstudent-43d90.appspot.com/o/profile4np1%2F336613578_1827127410994128_7461225114221110506_n.jpg?alt=media&token=b5f3e738-4332-453b-b520-8583285806f0',
     urLIamgeJP:

@@ -16,3 +16,18 @@ class ShowText extends StatelessWidget {
     return Text(text,style: textStyle ?? Myconstant().h3Style(),);
   }
 }
+
+class ShowTexttitle extends StatelessWidget {
+  final String text2;
+  final TextStyle? textStyle;
+  const ShowTexttitle({
+    Key? key,
+    required this.text2,
+    this.textStyle,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text2,style: textStyle ?? Myconstant().h44Style(),);
+  }
+}
