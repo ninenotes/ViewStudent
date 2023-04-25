@@ -32,20 +32,22 @@ class DisplayDetailStudent extends StatelessWidget {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(5),
                   child: SizedBox(
-                    width: 200,
-                    height: 150,
+                  width: 330,
+                    height: 160,
                     child: WidgetImageNetwork(urlImage: model5np1.image),
                   ),
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                Text(
-                  model5np1.idStudent,
-                  style: const TextStyle(
-                    fontSize: 25,
-                    color: Color.fromARGB(255, 233, 14, 14),
-                    fontWeight: FontWeight.bold,
+                Center(
+                  child: Text(
+                    model5np1.idStudent,
+                    style: const TextStyle(
+                      fontSize: 25,
+                       color: Color.fromARGB(255, 73, 151, 224),
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
 

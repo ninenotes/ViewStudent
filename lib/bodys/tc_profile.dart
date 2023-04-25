@@ -37,7 +37,7 @@ class _ProfileState extends State<tc_profile> {
               body: appController.userModels.isEmpty
                   ? ShowProgress()
                   :  ListView(
-                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          padding: const EdgeInsets.symmetric(horizontal: 7),
                           children: [
                             Column(
                               children: [

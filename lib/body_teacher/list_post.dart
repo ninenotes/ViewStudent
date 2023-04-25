@@ -1,10 +1,13 @@
 import 'dart:io';
-
+import 'package:photo_view/photo_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:viewstudent/body_teacher/techer_table/showimagepost.dart';
+import 'package:viewstudent/bodys/history.dart';
 import 'package:viewstudent/models/post_model.dart';
 import 'package:viewstudent/utility/app_controller.dart';
 import 'package:viewstudent/utility/app_service.dart';
@@ -61,10 +64,13 @@ class _ListPostState extends State<ListPost> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
+                                    
                                     Column(
+                                      
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
+                                        
                                         ShowTexttitle(
                                          
                                             text2: appController
@@ -72,15 +78,26 @@ class _ListPostState extends State<ListPost> {
                                         ShowText(
                                             text: appController
                                                 .postModels[index].post),
-                                        appController.postModels[index]
-                                                .urlImage!.isEmpty
-                                            ? const SizedBox()
-                                            : SizedBox(width: 250,
-                                              child: WidgetImageNetwork(
-                                                  urlImage: appController
-                                                      .postModels[index]
-                                                      .urlImage!),
-                                            ),
+                                       appController.postModels[index].urlImage!.isEmpty
+  ? const SizedBox()
+  : SizedBox(
+      width: 250,
+      child: GestureDetector(
+        onTap: () {
+
+Navigator.push(context,
+                          
+          MaterialPageRoute(
+
+                            builder: (context) => Imagepost(postModel: appController.postModels[index]),
+                          ),);
+        },
+        child: WidgetImageNetwork(
+          urlImage: appController.postModels[index].urlImage!,
+        ),
+      ),
+    ),
+                                          
                                         ShowText(
                                             text: AppService().timeToString(timestamp: appController.postModels[index].timestamp)),
                                       ],
@@ -278,3 +295,71 @@ class _ListPostState extends State<ListPost> {
     });
   }
 }
+// showDialogFunc(context, img, title, desc,
+//    ) {
+//   return showDialog(
+//     context: context,
+//     builder: (context) {
+//       return Center(
+//         child: Material(
+//           type: MaterialType.transparency,
+//           child: Container(
+//             decoration: BoxDecoration(
+//               borderRadius: BorderRadius.circular(10),
+//               color: Colors.white,
+//             ),
+//             padding: const EdgeInsets.all(15),
+//             height: 450,
+//             width: MediaQuery.of(context).size.width * 0.7,
+//             child: Column(
+//               crossAxisAlignment: CrossAxisAlignment.stretch,
+//               children: <Widget>[
+//                 ClipRRect(
+//                   borderRadius: BorderRadius.circular(5),
+//                   child: SizedBox(
+//                     width: 330,
+//                     height: 160,
+//                     child: WidgetImageNetwork(urlImage: img),
+//                   ),
+//                 ),
+//                 const SizedBox(
+//                   height: 10,
+//                 ),
+//                 Center(
+//                   child: Text(
+//                     title,
+//                     style: const TextStyle(
+//                       fontSize: 25,
+//                       color: Color.fromARGB(255, 73, 151, 224),
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                 ),
+
+//                 Center(
+//                   child: Text(
+//                     desc,
+//                     style: const TextStyle(
+//                       fontSize: 20,
+                      
+//                       color: Color.fromARGB(255, 0, 0, 0),
+//                       fontWeight: FontWeight.bold,
+//                     ),
+//                   ),
+//                 ),
+              
+                           
+               
+//                 const SizedBox(
+//                   height: 20,
+//                 ),
+               
+//               ],
+//             ),
+//           ),
+//         ),
+//       );
+//     },
+//   );
+// }
+
